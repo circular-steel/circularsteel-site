@@ -18,17 +18,21 @@ layout: base.njk
   </div>
 </section>
 
-{% set eventSponsors = collections.sponsors | sponsorsFor(slug) %}
+{% set eventSponsors = sponsors | resolveSponsors(collections.sponsors) %}
 {% if eventSponsors.length %}
 <section class="wash">
   <div class="wrap">
     <h2 class="section-title"><span class="kicker">Thank you</span>Sponsors</h2>
     <div class="grid-3">
-      {% for sponsor in eventSponsors %}
-      <a class="card-link" href="{{ sponsor.url }}">
+      {% for s in eventSponsors %}
+      <a class="card-link" href="{{ s.profile.url }}">
         <div class="card">
-          <div class="meta">{{ sponsor.data.tier }}</div>
-          <h3>{{ sponsor.data.title }}</h3>
+          {% if s.profile.data.logo %}
+          <img src="{{ s.profile.data.logo }}" alt="{{ s.profile.data.title }}" style="max-height:40px; max-width:140px; margin-bottom:12px;">
+          {% endif %}
+          <div class="meta">{{ s.tier }}</div>
+          <h3>{{ s.profile.data.title }}</h3>
+          {% if s.note %}<p>{{ s.note }}</p>{% endif %}
         </div>
       </a>
       {% endfor %}

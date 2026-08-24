@@ -17,13 +17,22 @@ collections:
     slug: "{{year}}-{{region}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Slug (used to link sponsors)", name: "slug", widget: "string", hint: "e.g. uk-2026 — must match the sponsor's 'event' field" }
+      - { label: "Slug", name: "slug", widget: "string", hint: "e.g. uk-2026 — internal identifier, not shown publicly" }
       - { label: "Region", name: "region", widget: "select", options: ["uk", "usa"] }
       - { label: "Year", name: "year", widget: "number", valueType: "int" }
       - { label: "Date", name: "date", widget: "string", hint: "e.g. 2026-06-24 or a text description" }
       - { label: "Venue", name: "venue", widget: "string", required: false }
       - { label: "Status", name: "status", widget: "select", options: ["upcoming", "past"] }
       - { label: "Summary (shown on the UK/USA hub list)", name: "summary", widget: "text" }
+      - label: "Sponsors"
+        name: "sponsors"
+        widget: "list"
+        required: false
+        hint: "Pick an existing sponsor profile — create it first under the Sponsors collection if it doesn't exist yet."
+        fields:
+          - { label: "Sponsor", name: "sponsor", widget: "relation", collection: "sponsors", search_fields: ["title"], display_fields: ["title"], value_field: "slug" }
+          - { label: "Tier", name: "tier", widget: "select", options: ["Platinum", "Gold", "Silver", "Networking Drinks", "Other"] }
+          - { label: "Note (optional, specific to this event)", name: "note", widget: "text", required: false }
       - label: "Downloads"
         name: "downloads"
         widget: "list"
@@ -38,15 +47,11 @@ collections:
     folder: "src/sponsors"
     create: true
     identifier_field: title
-    slug: "{{year}}-{{region}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
       - { label: "Company name", name: "title", widget: "string" }
-      - { label: "Slug", name: "slug", widget: "string", hint: "URL-friendly, e.g. cleveland-steel-tubes" }
-      - { label: "Event slug", name: "event", widget: "string", hint: "Must match the event's 'Slug' field exactly, e.g. uk-2026" }
-      - { label: "Region", name: "region", widget: "select", options: ["uk", "usa"] }
-      - { label: "Year", name: "year", widget: "number", valueType: "int" }
-      - { label: "Tier", name: "tier", widget: "select", options: ["Platinum", "Gold", "Silver", "Networking Drinks", "Other"] }
-      - { label: "Tier order (lower shows first)", name: "tierOrder", widget: "number", valueType: "int", default: 3 }
+      - { label: "Slug", name: "slug", widget: "string", hint: "URL-friendly, e.g. cleveland-steel-tubes — used to link this sponsor to events" }
+      - { label: "Logo", name: "logo", widget: "image", required: false }
       - { label: "Website", name: "website", widget: "string", required: false }
       - label: "Contacts"
         name: "contacts"

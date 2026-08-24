@@ -11,11 +11,35 @@ module.exports = function (eleventyConfig) {
     collectionApi.getFilteredByTag("sponsors")
   );
 
-  eleventyConfig.addFilter("sponsorsFor", (sponsors, eventSlug) =>
-    sponsors
-      .filter((s) => s.data.event === eventSlug)
-      .sort((a, b) => (a.data.tierOrder || 99) - (b.data.tierOrder || 99))
-  );
+  const TIER_ORDER = { Platinum: 1, Gold: 2, Silver: 3, "Networking Drinks": 4 };
+
+  // Given an event's own `sponsors` list ([{ sponsor: slug, tier, note }, ...]),
+  // resolve each entry to the full sponsor profile so templates can link to it.
+  eleventyConfig.addFilter("resolveSponsors", (sponsorRefs, allSponsors) => {
+    if (!sponsorRefs) return [];
+    return sponsorRefs
+      .map((ref) => {
+        const profile = allSponsors.find((s) => s.data.slug === ref.sponsor);
+        if (!profile) return null;
+        return { profile, tier: ref.tier, note: ref.note };
+      })
+      .filter(Boolean)
+      .sort((a, b) => (TIER_ORDER[a.tier] || 99) - (TIER_ORDER[b.tier] || 99));
+  });
+
+  // Reverse lookup: every event a given sponsor (by slug) appears in, with
+  // the tier/note they had at that specific event.
+  eleventyConfig.addFilter("eventsForSponsor", (events, sponsorSlug) => {
+    const rows = [];
+    events.forEach((event) => {
+      (event.data.sponsors || []).forEach((ref) => {
+        if (ref.sponsor === sponsorSlug) {
+          rows.push({ event, tier: ref.tier, note: ref.note });
+        }
+      });
+    });
+    return rows.sort((a, b) => b.event.data.year - a.event.data.year);
+  });
 
   return {
     dir: {

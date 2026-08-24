@@ -3,8 +3,10 @@ layout: base.njk
 ---
 <section class="hero" style="padding-bottom:0;">
   <div class="wrap">
-    <span class="tag">{{ tier }} SPONSOR</span>
-    <h1 style="margin-top:14px;">{{ title }}</h1>
+    {% if logo %}
+    <img src="{{ logo }}" alt="{{ title }}" style="max-height:60px; max-width:240px; margin-bottom:20px;">
+    {% endif %}
+    <h1>{{ title }}</h1>
   </div>
 </section>
 
@@ -27,8 +29,22 @@ layout: base.njk
   </div>
 </section>
 
-<section style="padding-top:0;">
-  <div class="wrap" style="text-align:center;">
-    <a class="btn" href="/{{ region }}/{{ year }}/">&larr; Back to Circular Steel {{ region | upper }} {{ year }}</a>
+{% set history = collections.events | eventsForSponsor(slug) %}
+{% if history.length %}
+<section class="wash">
+  <div class="wrap">
+    <h2 class="section-title"><span class="kicker">Sponsorship history</span>Events supported</h2>
+    <div class="grid-3">
+      {% for row in history %}
+      <a class="card-link" href="{{ row.event.url }}">
+        <div class="card">
+          <div class="meta">{{ row.tier }} &middot; {{ row.event.data.year }}</div>
+          <h3>{{ row.event.data.title }}</h3>
+          {% if row.note %}<p>{{ row.note }}</p>{% endif %}
+        </div>
+      </a>
+      {% endfor %}
+    </div>
   </div>
 </section>
+{% endif %}
