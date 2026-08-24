@@ -6,11 +6,29 @@ description: Circular Steel is the leading industry platform dedicated to advanc
 <div class="hero">
   {% include "rings.njk" %}
   <div class="wrap">
-    <h1>Shaping the future of steel reuse</h1>
-    <p class="lede">Circular Steel is the leading industry platform dedicated to advancing the reuse of structural steel.</p>
-    <div class="btn-row">
-      <a class="btn solid" href="/uk/">Circular Steel UK</a>
-      <a class="btn" href="/usa/">Circular Steel USA</a>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1>Shaping the future of steel reuse</h1>
+        <p class="lede">Circular Steel is the leading industry platform dedicated to advancing the reuse of structural steel.</p>
+        <div class="btn-row">
+          <a class="btn solid" href="/uk/">Circular Steel UK</a>
+          <a class="btn" href="/usa/">Circular Steel USA</a>
+        </div>
+      </div>
+      <div class="media-frame video" id="hero-video" data-yt="W3pWW-oixjE" style="cursor:pointer; background-image:url('https://img.youtube.com/vi/W3pWW-oixjE/hqdefault.jpg'); background-size:cover; background-position:center;">
+        <span class="play-btn" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+        </span>
+        <div class="caption">Circular Steel UK 2026 highlights &middot; click to play</div>
+      </div>
+      <script>
+        document.getElementById('hero-video').addEventListener('click', function () {
+          var id = this.dataset.yt;
+          this.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" title="Circular Steel highlights" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+          this.style.backgroundImage = 'none';
+          this.style.cursor = 'default';
+        });
+      </script>
     </div>
   </div>
 </div>
@@ -21,7 +39,7 @@ description: Circular Steel is the leading industry platform dedicated to advanc
   </div>
 </section>
 
-<section class="wash">
+<section class="dark">
   <div class="wrap">
     <div class="grid-4">
       <div class="stat">
@@ -64,13 +82,14 @@ description: Circular Steel is the leading industry platform dedicated to advanc
 
 <section class="wash">
   <div class="wrap">
-    <h2 class="section-title"><span class="kicker">Why it matters</span>Why Circular Steel matters</h2>
-    <div class="grid-2">
-      <div class="card">
-        <p>Steel reuse is one of the most powerful levers available to reduce embodied carbon in construction. Yet delivering it at scale requires coordination across the entire value chain &mdash; Circular Steel exists to connect that ecosystem. We create the space where technical expertise, commercial leadership and policy ambition meet, strengthening market confidence in steel reuse.</p>
+    <div class="split">
+      <div>
+        <h2 class="section-title"><span class="kicker">Why it matters</span>Why Circular Steel matters</h2>
+        <p style="color:var(--muted); font-size:16px;">Steel reuse is one of the most powerful levers available to reduce embodied carbon in construction. Yet delivering it at scale requires coordination across the entire value chain &mdash; Circular Steel exists to connect that ecosystem.</p>
+        <p style="color:var(--muted); font-size:16px;"><strong style="color:var(--ink);">A platform built around action.</strong> Circular Steel events are practical, collaborative and industry-led &mdash; focused on real projects, real challenges and real delivery.</p>
       </div>
-      <div class="card">
-        <p><strong>A platform built around action.</strong> Circular Steel events are designed to be practical, collaborative and industry-led. They focus on real projects, real challenges and real delivery &mdash; bringing together the organisations shaping the future of construction.</p>
+      <div class="split-media media-frame">
+        <img src="/images/gallery/2024-stage.jpg" alt="Circular Steel UK 2024 &mdash; keynote session">
       </div>
     </div>
   </div>
@@ -78,25 +97,40 @@ description: Circular Steel is the leading industry platform dedicated to advanc
 
 <section>
   <div class="wrap">
-    <h2 class="section-title"><span class="kicker">Two series</span>UK &amp; USA</h2>
-    <div class="grid-2">
-      <div class="card">
-        <h3>Circular Steel UK</h3>
-        <p>Our flagship annual London event brings together the most advanced steel reuse projects and practitioners in the industry.</p>
-        <p style="margin-top:14px;"><a class="btn" href="/uk/">Visit Circular Steel UK</a></p>
+    <div class="split reverse">
+      <div>
+        <h2 class="section-title"><span class="kicker">Two series</span>UK &amp; USA</h2>
+        <p style="color:var(--muted); font-size:16px; margin-bottom:10px;"><strong style="color:var(--ink);">Circular Steel UK</strong> &mdash; our flagship annual London event brings together the most advanced steel reuse projects and practitioners in the industry.</p>
+        <p style="color:var(--muted); font-size:16px;"><strong style="color:var(--ink);">Circular Steel USA</strong> &mdash; building on UK leadership, Circular Steel USA supports the growth of reuse practice across North America.</p>
+        <div class="btn-row" style="justify-content:flex-start;">
+          <a class="btn" href="/uk/">Visit Circular Steel UK</a>
+          <a class="btn" href="/usa/">Visit Circular Steel USA</a>
+        </div>
       </div>
-      <div class="card">
-        <h3>Circular Steel USA</h3>
-        <p>Building on UK leadership, Circular Steel USA supports the growth of reuse practice across North America.</p>
-        <p style="margin-top:14px;"><a class="btn" href="/usa/">Visit Circular Steel USA</a></p>
+      <div class="split-media media-frame">
+        <img src="/images/gallery/2025-usa-workshop.jpg" alt="Circular Steel USA 2025 &mdash; workshop session">
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="wash">
+  <div class="wrap">
+    <h2 class="section-title"><span class="kicker">Six years running</span>Moments from past events</h2>
+    <div class="gallery">
+      <a class="g-a" href="/uk/2026/"><img src="/images/gallery/2026-uk-speaker.jpg" alt="Circular Steel UK 2026"></a>
+      <a href="/uk/2024/"><img src="/images/gallery/2024-stage.jpg" alt="Circular Steel UK 2024"></a>
+      <a href="/usa/2025/"><img src="/images/gallery/2025-usa-workshop.jpg" alt="Circular Steel USA 2025"></a>
+      <a class="g-b" href="/uk/2023/"><img src="/images/gallery/2023-networking.jpg" alt="Circular Steel UK 2023"></a>
+      <a href="/uk/2025/"><img src="/images/gallery/2025-uk-roundtable.jpg" alt="Circular Steel UK 2025"></a>
+      <a href="/uk/2022/"><img src="/images/gallery/2022-networking.jpg" alt="Circular Steel UK 2022"></a>
     </div>
   </div>
 </section>
 
 {% set logoSponsors = collections.sponsors | withLogo %}
 {% if logoSponsors.length %}
-<section class="wash">
+<section>
   <div class="wrap" style="text-align:center;">
     <h2 class="section-title" style="text-align:center;">
       <span class="kicker">Backed by</span>
@@ -113,10 +147,10 @@ description: Circular Steel is the leading industry platform dedicated to advanc
 </section>
 {% endif %}
 
-<section>
+<section class="dark">
   <div class="wrap" style="text-align:center;">
     <h2 class="section-title" style="text-align:center;">Sign up to the newsletter</h2>
-    <p class="prose" style="margin:0 auto 24px; color:var(--muted);">The Circular Steel newsletter on Substack &mdash; updates on events, reuse projects and the market.</p>
-    <a class="btn solid" href="{{ site.substack }}" target="_blank" rel="noopener">Subscribe on Substack</a>
+    <p style="margin:0 auto 24px; color:rgba(255,255,255,0.75); max-width:520px;">The Circular Steel newsletter on Substack &mdash; updates on events, reuse projects and the market.</p>
+    <a class="btn on-dark" href="{{ site.substack }}" target="_blank" rel="noopener">Subscribe on Substack</a>
   </div>
 </section>
