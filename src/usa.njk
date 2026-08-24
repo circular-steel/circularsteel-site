@@ -1,0 +1,56 @@
+---
+layout: base.njk
+title: Circular Steel USA
+description: Supporting the next frontier of steel reuse across North America.
+permalink: /usa/
+---
+<section class="hero" style="padding-bottom:0;">
+  <div class="wrap">
+    <h1>Supporting the next frontier of steel reuse</h1>
+    <p class="lede">Circular Steel USA builds on UK leadership to support the growth of structural steel reuse across North America. As interest accelerates in embodied carbon reduction, Circular Steel USA provides a focused forum for practitioners, owners and policymakers seeking practical pathways to deliver reuse projects.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="text-align:center;">
+    <div class="card" style="display:inline-block; text-align:left; max-width:520px;">
+      <div class="meta">Next event</div>
+      <h3>Circular Steel USA 2027</h3>
+      <p>15&ndash;16 April 2027 &middot; Denver, CO. More info coming soon &mdash; hold the date, and get in touch if you want to be part of it.</p>
+      <p style="margin-top:14px;"><a class="btn solid" href="/contact/">Get in touch</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="wash">
+  <div class="wrap">
+    <h2 class="section-title"><span class="kicker">Focus</span>Connecting global expertise</h2>
+    <p class="prose" style="margin-bottom:20px;">The platform brings together:</p>
+    <div class="grid-2">
+      <div class="card"><p>US project leaders and asset owners</p></div>
+      <div class="card"><p>UK practitioners sharing proven experience</p></div>
+      <div class="card"><p>Engineers, fabricators and demolition specialists</p></div>
+      <div class="card"><p>Policy leaders and sustainability experts</p></div>
+    </div>
+    <p class="prose" style="margin-top:28px;">Together, they explore how global lessons can accelerate regional market readiness. <strong>A practical, practitioner-led forum.</strong> Circular Steel USA prioritises real-world delivery, connecting those designing, procuring and delivering projects with reuse ambitions.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="section-title"><span class="kicker">Archive</span>Previous USA events</h2>
+    <div class="grid-2">
+      {% for event in collections.events %}
+        {% if event.data.region == "usa" %}
+        <a class="card-link" href="{{ event.url }}">
+          <div class="card">
+            <span class="tag status-past">{{ event.data.year }}</span>
+            <h3 style="margin-top:10px;">{{ event.data.title }}</h3>
+            <p>{{ event.data.summary }}</p>
+          </div>
+        </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

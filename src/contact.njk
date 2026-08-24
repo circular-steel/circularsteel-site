@@ -1,0 +1,41 @@
+---
+layout: base.njk
+title: Contact
+description: Get in touch with Circular Steel.
+permalink: /contact/
+---
+<section class="hero" style="padding-bottom:0;">
+  <div class="wrap">
+    <h1>Get in touch</h1>
+    <p class="lede">How can you help Circular Steel?</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact">
+      <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+      <div>
+        <label for="name">Name *</label>
+        <input id="name" name="name" type="text" required>
+      </div>
+      <div>
+        <label for="email">Email *</label>
+        <input id="email" name="email" type="email" required>
+      </div>
+      <div>
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel">
+      </div>
+      <div>
+        <label for="message">Hit us with what you've got *</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+      <div>
+        <label><input type="checkbox" name="newsletter" value="yes" style="width:auto; display:inline-block;"> Sign up to our email list for updates and more.</label>
+      </div>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</section>

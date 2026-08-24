@@ -1,0 +1,34 @@
+---
+layout: base.njk
+title: Help
+description: Need help with steel reuse? Let us know.
+permalink: /help/
+---
+<section class="hero" style="padding-bottom:0;">
+  <div class="wrap">
+    <h1>Need help with reuse?</h1>
+    <p class="lede">Let us know what you need help with.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <form class="contact-form" name="help" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
+      <input type="hidden" name="form-name" value="help">
+      <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+      <div>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text">
+      </div>
+      <div>
+        <label for="email">Email *</label>
+        <input id="email" name="email" type="email" required>
+      </div>
+      <div>
+        <label for="attachment">Attach files</label>
+        <input id="attachment" name="attachment" type="file">
+      </div>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</section>

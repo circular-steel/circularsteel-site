@@ -1,0 +1,57 @@
+---
+layout: base.njk
+---
+<section class="hero" style="padding-bottom:0;">
+  <div class="wrap">
+    <span class="tag {{ 'status-past' if status == 'past' }}">{{ status | upper }}</span>
+    <h1 style="margin-top:14px;">{{ title }}</h1>
+    <p class="lede">
+      {% if date %}{{ date }}{% endif %}
+      {% if venue %} &middot; {{ venue }}{% endif %}
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap prose">
+    {{ content | safe }}
+  </div>
+</section>
+
+{% set eventSponsors = collections.sponsors | sponsorsFor(slug) %}
+{% if eventSponsors.length %}
+<section class="wash">
+  <div class="wrap">
+    <h2 class="section-title"><span class="kicker">Thank you</span>Sponsors</h2>
+    <div class="grid-3">
+      {% for sponsor in eventSponsors %}
+      <a class="card-link" href="{{ sponsor.url }}">
+        <div class="card">
+          <div class="meta">{{ sponsor.data.tier }}</div>
+          <h3>{{ sponsor.data.title }}</h3>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if downloads and downloads.length %}
+<section>
+  <div class="wrap">
+    <h2 class="section-title"><span class="kicker">Downloads</span>From the day</h2>
+    <table class="docs">
+      {% for d in downloads %}
+      <tr><td>{{ d.label }}</td><td>{% if d.url %}<a href="{{ d.url }}" target="_blank" rel="noopener">Download</a>{% else %}<span style="color:var(--muted); font-size:13px;">link pending</span>{% endif %}</td></tr>
+      {% endfor %}
+    </table>
+  </div>
+</section>
+{% endif %}
+
+<section>
+  <div class="wrap" style="text-align:center;">
+    <a class="btn" href="/{{ region }}/">&larr; Back to Circular Steel {{ region | upper }}</a>
+  </div>
+</section>

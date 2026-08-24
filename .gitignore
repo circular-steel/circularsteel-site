@@ -1,5 +1,6 @@
 .DS_Store
 node_modules/
+_site/
 
 # Internal planning docs — kept local, not part of the deployed site
 NOTES-FOR-STEVE.md

@@ -1,0 +1,34 @@
+---
+layout: base.njk
+---
+<section class="hero" style="padding-bottom:0;">
+  <div class="wrap">
+    <span class="tag">{{ tier }} SPONSOR</span>
+    <h1 style="margin-top:14px;">{{ title }}</h1>
+  </div>
+</section>
+
+<section>
+  <div class="wrap prose">
+    {{ content | safe }}
+
+    {% if contacts and contacts.length %}
+    <h2>Contacts</h2>
+    <ul>
+      {% for c in contacts %}
+      <li>{{ c.name }}{% if c.role %} &mdash; {{ c.role }}{% endif %}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if website %}
+    <p><a class="btn" href="{{ website }}" target="_blank" rel="noopener">Visit website &rarr;</a></p>
+    {% endif %}
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap" style="text-align:center;">
+    <a class="btn" href="/{{ region }}/{{ year }}/">&larr; Back to Circular Steel {{ region | upper }} {{ year }}</a>
+  </div>
+</section>

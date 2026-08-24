@@ -1,0 +1,56 @@
+backend:
+  name: github
+  repo: circular-steel/circularsteel-site
+  branch: main
+
+media_folder: "src/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "events"
+    label: "Events"
+    folder: "src/events"
+    create: true
+    identifier_field: title
+    slug: "{{year}}-{{region}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug (used to link sponsors)", name: "slug", widget: "string", hint: "e.g. uk-2026 — must match the sponsor's 'event' field" }
+      - { label: "Region", name: "region", widget: "select", options: ["uk", "usa"] }
+      - { label: "Year", name: "year", widget: "number", valueType: "int" }
+      - { label: "Date", name: "date", widget: "string", hint: "e.g. 2026-06-24 or a text description" }
+      - { label: "Venue", name: "venue", widget: "string", required: false }
+      - { label: "Status", name: "status", widget: "select", options: ["upcoming", "past"] }
+      - { label: "Summary (shown on the UK/USA hub list)", name: "summary", widget: "text" }
+      - label: "Downloads"
+        name: "downloads"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "File", name: "url", widget: "file", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "sponsors"
+    label: "Sponsors"
+    folder: "src/sponsors"
+    create: true
+    identifier_field: title
+    slug: "{{year}}-{{region}}-{{slug}}"
+    fields:
+      - { label: "Company name", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string", hint: "URL-friendly, e.g. cleveland-steel-tubes" }
+      - { label: "Event slug", name: "event", widget: "string", hint: "Must match the event's 'Slug' field exactly, e.g. uk-2026" }
+      - { label: "Region", name: "region", widget: "select", options: ["uk", "usa"] }
+      - { label: "Year", name: "year", widget: "number", valueType: "int" }
+      - { label: "Tier", name: "tier", widget: "select", options: ["Platinum", "Gold", "Silver", "Networking Drinks", "Other"] }
+      - { label: "Tier order (lower shows first)", name: "tierOrder", widget: "number", valueType: "int", default: 3 }
+      - { label: "Website", name: "website", widget: "string", required: false }
+      - label: "Contacts"
+        name: "contacts"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Role", name: "role", widget: "string", required: false }
+      - { label: "About / body copy", name: "body", widget: "markdown" }
