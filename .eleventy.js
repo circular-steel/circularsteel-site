@@ -29,6 +29,17 @@ module.exports = function (eleventyConfig) {
 
   // Reverse lookup: every event a given sponsor (by slug) appears in, with
   // the tier/note they had at that specific event.
+  eleventyConfig.addFilter("byRegion", (events, region) =>
+    (events || []).filter((e) => e.data.region === region)
+  );
+
+  eleventyConfig.addFilter("niceDate", (isoString) => {
+    if (!isoString) return "";
+    const d = new Date(isoString);
+    if (isNaN(d)) return "";
+    return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+  });
+
   eleventyConfig.addFilter("withLogo", (sponsors) =>
     (sponsors || []).filter((s) => s.data.logo)
   );

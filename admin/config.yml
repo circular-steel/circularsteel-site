@@ -23,6 +23,7 @@ collections:
       - { label: "Date", name: "date", widget: "string", hint: "e.g. 2026-06-24 or a text description" }
       - { label: "Venue", name: "venue", widget: "string", required: false }
       - { label: "Status", name: "status", widget: "select", options: ["upcoming", "past"] }
+      - { label: "Feature image", name: "image", widget: "image", required: false, hint: "Shown on the UK/USA hub page for the two most recent events." }
       - { label: "Summary (shown on the UK/USA hub list)", name: "summary", widget: "text" }
       - label: "Sponsors"
         name: "sponsors"

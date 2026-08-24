@@ -147,6 +147,28 @@ description: Circular Steel is the leading industry platform dedicated to advanc
 </section>
 {% endif %}
 
+{% if substackPosts.length %}
+<section>
+  <div class="wrap">
+    <h2 class="section-title"><span class="kicker">From the newsletter</span>Latest from Circular Steel on Substack</h2>
+    <div class="grid-2">
+      {% for post in substackPosts %}
+      <a class="post-tile" href="{{ post.link }}" target="_blank" rel="noopener">
+        {% if post.image %}
+        <div class="thumb"><img src="{{ post.image }}" alt="" loading="lazy"></div>
+        {% endif %}
+        <div class="body">
+          <div class="meta">{{ post.pubDate | niceDate }}</div>
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.description }}</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
 <section class="dark">
   <div class="wrap" style="text-align:center;">
     <h2 class="section-title" style="text-align:center;">Sign up to the newsletter</h2>

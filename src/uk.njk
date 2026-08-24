@@ -37,16 +37,20 @@ permalink: /uk/
   </div>
 </section>
 
+{% set ukEvents = collections.events | byRegion("uk") %}
 <section>
   <div class="wrap">
-    <h2 class="section-title"><span class="kicker">Archive</span>Previous UK events</h2>
+    <h2 class="section-title"><span class="kicker">Most recent</span>Previous UK events</h2>
     <div class="grid-2">
-      {% for event in collections.events %}
-        {% if event.data.region == "uk" %}
-        <a class="card-link" href="{{ event.url }}">
-          <div class="card">
+      {% for event in ukEvents %}
+        {% if loop.index0 < 2 %}
+        <a class="event-feature" href="{{ event.url }}">
+          <div class="ef-media">
+            {% if event.data.image %}<img src="{{ event.data.image }}" alt="{{ event.data.title }}">{% endif %}
+          </div>
+          <div class="ef-body">
             <span class="tag status-past">{{ event.data.year }}</span>
-            <h3 style="margin-top:10px;">{{ event.data.title }}</h3>
+            <h3>{{ event.data.title }}</h3>
             <p>{{ event.data.summary }}</p>
           </div>
         </a>
@@ -55,3 +59,22 @@ permalink: /uk/
     </div>
   </div>
 </section>
+
+{% if ukEvents.length > 2 %}
+<section class="wash">
+  <div class="wrap">
+    <h2 class="section-title"><span class="kicker">Archive</span>Earlier UK events</h2>
+    <div class="archive-list">
+      {% for event in ukEvents %}
+        {% if loop.index0 >= 2 %}
+        <a class="archive-row" href="{{ event.url }}">
+          <span class="yr">{{ event.data.year }}</span>
+          <span class="at">{{ event.data.title }}</span>
+          <span class="as">{{ event.data.summary }}</span>
+        </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
