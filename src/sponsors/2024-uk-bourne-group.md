@@ -1,0 +1,20 @@
+---
+title: Bourne Group
+slug: bourne-group
+event: uk-2024
+region: uk
+year: 2024
+tier: Gold
+tierOrder: 2
+website: "https://www.bournegroup.ltd"
+contacts:
+  - { name: "Craig Galway" }
+  - { name: "Samantha Lester" }
+  - { name: "Tom Marsden" }
+  - { name: "Kate Carter-Brown" }
+---
+A construction engineering company committed to 100% Net Zero Steel by 2050, with an SBTi-approved science-based target for scope 1 and 2 emissions. Bourne Group is a Gold member of the Supply Chain Sustainability School and holds Gold Standard membership of the BCSA Steel Construction Sustainability Charter.
+
+## Why Circular Steel
+
+Bourne Group is pursuing multiple decarbonisation pathways, with practical steel reuse as one of its core commitments, and remains a founding member of the Climate Group's #SteelZero initiative.
