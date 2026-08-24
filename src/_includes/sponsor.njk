@@ -4,7 +4,9 @@ layout: base.njk
 <section class="hero" style="padding-bottom:0;">
   <div class="wrap">
     {% if logo %}
-    <img src="{{ logo }}" alt="{{ title }}" style="max-height:60px; max-width:240px; margin-bottom:20px;">
+    <div class="logo-tile large" style="margin: 0 auto 20px;">
+      <img src="{{ logo }}" alt="{{ title }}">
+    </div>
     {% endif %}
     <h1>{{ title }}</h1>
   </div>

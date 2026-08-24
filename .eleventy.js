@@ -29,6 +29,10 @@ module.exports = function (eleventyConfig) {
 
   // Reverse lookup: every event a given sponsor (by slug) appears in, with
   // the tier/note they had at that specific event.
+  eleventyConfig.addFilter("withLogo", (sponsors) =>
+    (sponsors || []).filter((s) => s.data.logo)
+  );
+
   eleventyConfig.addFilter("eventsForSponsor", (events, sponsorSlug) => {
     const rows = [];
     events.forEach((event) => {

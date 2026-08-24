@@ -1,6 +1,7 @@
 ---
 title: Keltbray
 slug: keltbray
+logo: "/images/uploads/keltbray.webp"
 website: "https://www.keltbray.com"
 contacts:
   - { name: "Scott de la Fuente", role: "Ops Director, Group Steelwork Lead" }

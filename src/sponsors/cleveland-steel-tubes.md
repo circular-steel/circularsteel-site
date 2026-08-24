@@ -1,6 +1,7 @@
 ---
 title: Cleveland Steel & Tubes
 slug: cleveland-steel-tubes
+logo: "/images/uploads/cleveland-steel-tubes.jpeg"
 website: "https://cleveland-steel.com"
 contacts:
   - { name: "Roy Fishwick", role: "MD" }

@@ -28,7 +28,9 @@ layout: base.njk
       <a class="card-link" href="{{ s.profile.url }}">
         <div class="card">
           {% if s.profile.data.logo %}
-          <img src="{{ s.profile.data.logo }}" alt="{{ s.profile.data.title }}" style="max-height:40px; max-width:140px; margin-bottom:12px;">
+          <div class="logo-tile" style="margin-bottom:14px;">
+            <img src="{{ s.profile.data.logo }}" alt="{{ s.profile.data.title }}">
+          </div>
           {% endif %}
           <div class="meta">{{ s.tier }}</div>
           <h3>{{ s.profile.data.title }}</h3>

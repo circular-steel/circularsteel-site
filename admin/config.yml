@@ -51,7 +51,7 @@ collections:
     fields:
       - { label: "Company name", name: "title", widget: "string" }
       - { label: "Slug", name: "slug", widget: "string", hint: "URL-friendly, e.g. cleveland-steel-tubes — used to link this sponsor to events" }
-      - { label: "Logo", name: "logo", widget: "image", required: false }
+      - { label: "Logo", name: "logo", widget: "image", required: false, hint: "Any size, shape or file type is fine (PNG, JPG, SVG, WEBP) — it's automatically fitted into a consistent box on the site, no need to crop or resize first. Transparent background looks cleanest but isn't required." }
       - { label: "Website", name: "website", widget: "string", required: false }
       - label: "Contacts"
         name: "contacts"

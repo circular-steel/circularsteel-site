@@ -4,6 +4,7 @@ title: Steel Reuse & Recycling
 description: Circular Steel is the leading industry platform dedicated to advancing the reuse of structural steel.
 ---
 <div class="hero">
+  {% include "rings.njk" %}
   <div class="wrap">
     <h1>Shaping the future of steel reuse</h1>
     <p class="lede">Circular Steel is the leading industry platform dedicated to advancing the reuse of structural steel.</p>
@@ -22,6 +23,29 @@ description: Circular Steel is the leading industry platform dedicated to advanc
 
 <section class="wash">
   <div class="wrap">
+    <div class="grid-4">
+      <div class="stat">
+        <div class="number">{{ collections.events.length }}</div>
+        <div class="label">Events held since 2022</div>
+      </div>
+      <div class="stat">
+        <div class="number">125+</div>
+        <div class="label">At our biggest UK event yet, 2026</div>
+      </div>
+      <div class="stat">
+        <div class="number">{{ collections.sponsors.length }}</div>
+        <div class="label">Sponsor organisations in the community</div>
+      </div>
+      <div class="stat">
+        <div class="number">UK &amp; USA</div>
+        <div class="label">And growing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
     <h2 class="section-title"><span class="kicker">What's next</span>Future events</h2>
     <div class="grid-2">
       <div class="card">
@@ -38,7 +62,7 @@ description: Circular Steel is the leading industry platform dedicated to advanc
   </div>
 </section>
 
-<section>
+<section class="wash">
   <div class="wrap">
     <h2 class="section-title"><span class="kicker">Why it matters</span>Why Circular Steel matters</h2>
     <div class="grid-2">
@@ -52,7 +76,7 @@ description: Circular Steel is the leading industry platform dedicated to advanc
   </div>
 </section>
 
-<section class="wash">
+<section>
   <div class="wrap">
     <h2 class="section-title"><span class="kicker">Two series</span>UK &amp; USA</h2>
     <div class="grid-2">
@@ -69,6 +93,25 @@ description: Circular Steel is the leading industry platform dedicated to advanc
     </div>
   </div>
 </section>
+
+{% set logoSponsors = collections.sponsors | withLogo %}
+{% if logoSponsors.length %}
+<section class="wash">
+  <div class="wrap" style="text-align:center;">
+    <h2 class="section-title" style="text-align:center;">
+      <span class="kicker">Backed by</span>
+      Sponsors across the steel supply chain
+    </h2>
+    <div class="logo-strip">
+      {% for s in logoSponsors %}
+      <a class="logo-tile" href="{{ s.url }}" title="{{ s.data.title }}">
+        <img src="{{ s.data.logo }}" alt="{{ s.data.title }}">
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
 
 <section>
   <div class="wrap" style="text-align:center;">

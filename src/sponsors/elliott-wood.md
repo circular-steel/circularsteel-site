@@ -1,6 +1,7 @@
 ---
 title: Elliott Wood
 slug: elliott-wood
+logo: "/images/uploads/elliott-wood.png"
 website: "https://www.elliottwood.co.uk"
 contacts:
   - { name: "Gary Elliott", role: "Managing Director" }
