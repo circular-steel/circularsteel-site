@@ -1,6 +1,21 @@
 {
-  "global": [],
-  "uk": [],
+  "global": [
+    {
+      "sponsor": "elliott-wood",
+      "tier": "Programme Partner"
+    }
+  ],
+  "uk": [
+    {
+      "sponsor": "elliott-wood",
+      "tier": "Platinum"
+    }
+  ],
   "usa": [],
-  "playbook": []
+  "playbook": [
+    {
+      "sponsor": "elliott-wood",
+      "tier": "Other"
+    }
+  ]
 }
