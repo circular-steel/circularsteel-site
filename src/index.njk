@@ -148,12 +148,30 @@ description: Circular Steel is the leading industry platform dedicated to advanc
       <span class="kicker">Community</span>
       Sponsors across the steel supply chain
     </h2>
-    <div class="logo-strip">
-      {% for s in logoSponsors %}
-      <a class="logo-tile" href="{{ s.url }}" title="{{ s.data.title }}">
-        <img src="{{ s.data.logo }}" alt="{{ s.data.title }}">
-      </a>
-      {% endfor %}
+    {% set logoRows = logoSponsors | splitInHalf %}
+    <div class="logo-marquee">
+      <div class="logo-marquee-row">
+        <div class="logo-marquee-track">
+          {% for row in [logoRows[0], logoRows[0]] %}
+          {% for s in row %}
+          <a class="logo-tile" href="{{ s.url }}" title="{{ s.data.title }}">
+            <img src="{{ s.data.logo }}" alt="{{ s.data.title }}">
+          </a>
+          {% endfor %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="logo-marquee-row reverse">
+        <div class="logo-marquee-track">
+          {% for row in [logoRows[1], logoRows[1]] %}
+          {% for s in row %}
+          <a class="logo-tile" href="{{ s.url }}" title="{{ s.data.title }}">
+            <img src="{{ s.data.logo }}" alt="{{ s.data.title }}">
+          </a>
+          {% endfor %}
+          {% endfor %}
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -161,7 +179,7 @@ description: Circular Steel is the leading industry platform dedicated to advanc
 
 {% set playbookPartners = programmePartners.playbook | resolveSponsors(collections.sponsors, collections.tiers) %}
 {% if playbookPartners.length %}
-<section class="dark">
+<section class="dark" style="background: var(--navy-deep);">
   <div class="wrap">
     <h2 class="section-title"><span class="kicker">Also from us</span>Reuse Playbook</h2>
     <p style="color:rgba(255,255,255,0.82); font-size:16px; margin-bottom:24px; max-width:70ch;">Our practical guide to specifying and delivering reused steel, backed by its own sponsors. Reuse Playbook has a home of its own at <a href="https://reuseplaybook.com" target="_blank" rel="noopener" style="color:#fff;">reuseplaybook.com</a>.</p>
@@ -172,7 +190,7 @@ description: Circular Steel is the leading industry platform dedicated to advanc
 </section>
 {% endif %}
 
-<section class="dark">
+<section class="dark" style="border-top: 1px solid rgba(255,255,255,0.12);">
   <div class="wrap">
     <h2 class="section-title"><span class="kicker">The newsletter</span>Latest from Circular Steel on Substack</h2>
     {% if substackPosts.length %}

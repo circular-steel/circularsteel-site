@@ -81,6 +81,13 @@ module.exports = function (eleventyConfig) {
     (sponsors || []).filter((s) => s.data.logo)
   );
 
+  // Splits a list roughly in half, for the two-row logo marquee.
+  eleventyConfig.addFilter("splitInHalf", (arr) => {
+    const list = arr || [];
+    const mid = Math.ceil(list.length / 2);
+    return [list.slice(0, mid), list.slice(mid)];
+  });
+
   eleventyConfig.addFilter("eventsForSponsor", (events, sponsorSlug) => {
     const rows = [];
     events.forEach((event) => {
