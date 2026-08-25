@@ -84,12 +84,11 @@ layout: base.njk
       <span class="doc-tile is-pending">
       {% endif %}
         <span class="doc-tile-head" style="{% if d.color %}--accent-color: {{ d.color }};{% endif %}">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+          <span class="doc-title">{{ d.label }}</span>
         </span>
         <span class="doc-tile-body">
-          <span class="doc-title">{{ d.label }}</span>
-          {% if d.description %}<span class="doc-sub">{{ d.description }}</span>
-          {% else %}<span class="doc-sub">{% if d.url %}Download PDF{% else %}Link pending{% endif %}</span>{% endif %}
+          <span class="doc-sub">{% if d.url %}Download PDF{% else %}Link pending{% endif %}</span>
+          {% if d.description %}<span class="doc-desc">{{ d.description }}</span>{% endif %}
         </span>
       {% if d.url %}</a>{% else %}</span>{% endif %}
       {% endfor %}
@@ -102,12 +101,13 @@ layout: base.njk
       {% else %}
       <span class="doc-card is-pending">
       {% endif %}
-        <span class="doc-icon" style="{% if d.color %}background: {{ d.color }}1a; color: {{ d.color }};{% endif %}">
+        <span class="doc-icon" style="{% if d.color %}--accent-color: {{ d.color }};{% endif %}">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
         </span>
-        <span>
+        <span class="doc-body">
           <span class="doc-title">{{ d.label }}</span>
-          <span class="doc-sub">{% if d.description %}{{ d.description }}{% elif d.url %}Download PDF{% else %}Link pending{% endif %}</span>
+          <span class="doc-sub">{% if d.url %}Download PDF{% else %}Link pending{% endif %}</span>
+          {% if d.description %}<span class="doc-desc">{{ d.description }}</span>{% endif %}
         </span>
       {% if d.url %}</a>{% else %}</span>{% endif %}
       {% endfor %}

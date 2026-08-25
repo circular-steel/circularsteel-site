@@ -85,7 +85,7 @@ collections:
         fields:
           - { label: "Label", name: "label", widget: "string" }
           - { label: "File", name: "url", widget: "file", required: false }
-          - { label: "One-line description (optional, only shown in 'tile' style)", name: "description", widget: "string", required: false }
+          - { label: "One-line description (optional)", name: "description", widget: "string", required: false }
           - { label: "Accent colour (optional hex, e.g. #00b3e0)", name: "color", widget: "string", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
