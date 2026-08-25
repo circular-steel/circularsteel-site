@@ -12,7 +12,7 @@ description: Circular Steel is the leading industry platform dedicated to advanc
         <p class="lede">Circular Steel is the leading industry platform dedicated to advancing the reuse of structural steel.</p>
         <div class="btn-row">
           <a class="btn on-dark solid-white" href="/uk/">Circular Steel UK</a>
-          <a class="btn on-dark" href="/usa/">Circular Steel USA</a>
+          <a class="btn on-dark solid-white" href="/usa/">Circular Steel USA</a>
         </div>
       </div>
       <div class="media-frame video" id="hero-video" data-yt="W3pWW-oixjE" style="cursor:pointer; background-image:url('https://img.youtube.com/vi/W3pWW-oixjE/hqdefault.jpg'); background-size:cover; background-position:center;">
@@ -61,6 +61,18 @@ description: Circular Steel is the leading industry platform dedicated to advanc
     </div>
   </div>
 </section>
+
+{% set globalPartners = programmePartners.global | resolveSponsors(collections.sponsors, collections.tiers) %}
+{% if globalPartners.length %}
+<section class="wash">
+  <div class="wrap">
+    <h2 class="section-title"><span class="kicker">Backed by</span>Our Sponsors</h2>
+    <div class="grid-3">
+      {{ sponsorGrid(globalPartners, collections.tiers) }}
+    </div>
+  </div>
+</section>
+{% endif %}
 
 <section>
   <div class="wrap">
@@ -114,19 +126,6 @@ description: Circular Steel is the leading industry platform dedicated to advanc
   </div>
 </section>
 
-{% set playbookPartners = programmePartners.playbook | resolveSponsors(collections.sponsors, collections.tiers) %}
-{% if playbookPartners.length %}
-<section>
-  <div class="wrap">
-    <h2 class="section-title"><span class="kicker">Also from us</span>Reuse Playbook</h2>
-    <p class="prose" style="margin-bottom:24px; max-width:70ch;">Our practical guide to specifying and delivering reused steel, backed by its own sponsors. Reuse Playbook has a home of its own at <a href="https://reuseplaybook.com" target="_blank" rel="noopener">reuseplaybook.com</a>.</p>
-    <div class="grid-3">
-      {{ sponsorGrid(playbookPartners, collections.tiers) }}
-    </div>
-  </div>
-</section>
-{% endif %}
-
 <section class="wash">
   <div class="wrap">
     <h2 class="section-title"><span class="kicker">Six years running</span>Moments from past events</h2>
@@ -140,18 +139,6 @@ description: Circular Steel is the leading industry platform dedicated to advanc
     </div>
   </div>
 </section>
-
-{% set globalPartners = programmePartners.global | resolveSponsors(collections.sponsors, collections.tiers) %}
-{% if globalPartners.length %}
-<section>
-  <div class="wrap">
-    <h2 class="section-title"><span class="kicker">Backed by</span>Programme Partners</h2>
-    <div class="grid-3">
-      {{ sponsorGrid(globalPartners, collections.tiers) }}
-    </div>
-  </div>
-</section>
-{% endif %}
 
 {% set logoSponsors = collections.sponsors | withLogo %}
 {% if logoSponsors.length %}
@@ -167,6 +154,19 @@ description: Circular Steel is the leading industry platform dedicated to advanc
         <img src="{{ s.data.logo }}" alt="{{ s.data.title }}">
       </a>
       {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% set playbookPartners = programmePartners.playbook | resolveSponsors(collections.sponsors, collections.tiers) %}
+{% if playbookPartners.length %}
+<section class="dark">
+  <div class="wrap">
+    <h2 class="section-title"><span class="kicker">Also from us</span>Reuse Playbook</h2>
+    <p style="color:rgba(255,255,255,0.82); font-size:16px; margin-bottom:24px; max-width:70ch;">Our practical guide to specifying and delivering reused steel, backed by its own sponsors. Reuse Playbook has a home of its own at <a href="https://reuseplaybook.com" target="_blank" rel="noopener" style="color:#fff;">reuseplaybook.com</a>.</p>
+    <div class="grid-3">
+      {{ sponsorGrid(playbookPartners, collections.tiers) }}
     </div>
   </div>
 </section>
