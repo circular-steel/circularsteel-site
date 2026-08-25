@@ -1,5 +1,6 @@
 ---
 name: Gold
-color: "#A9790A"
-order: 2
+color: "#D29C3C"
+color2: "#D1C58F"
+order: 3
 ---

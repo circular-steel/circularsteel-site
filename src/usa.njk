@@ -5,6 +5,7 @@ description: Supporting the next frontier of steel reuse across North America.
 permalink: /usa/
 region: usa
 ---
+{% from "sponsor-grid.njk" import sponsorGrid %}
 <section class="hero" style="padding-bottom:0;">
   <div class="wrap">
     <h1>Supporting the next frontier of steel reuse</h1>
@@ -36,6 +37,18 @@ region: usa
     <p class="prose" style="margin-top:28px;">Together, they explore how global lessons can accelerate regional market readiness. <strong>A practical, practitioner-led forum.</strong> Circular Steel USA prioritises real-world delivery, connecting those designing, procuring and delivering projects with reuse ambitions.</p>
   </div>
 </section>
+
+{% set usaPartners = programmePartners.usa | resolveSponsors(collections.sponsors, collections.tiers) %}
+{% if usaPartners.length %}
+<section>
+  <div class="wrap">
+    <h2 class="section-title"><span class="kicker">Backed by</span>Programme Partners</h2>
+    <div class="grid-3">
+      {{ sponsorGrid(usaPartners, collections.tiers) }}
+    </div>
+  </div>
+</section>
+{% endif %}
 
 {% set usaEvents = collections.events | byRegion("usa") %}
 <section>

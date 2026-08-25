@@ -1,5 +1,6 @@
 ---
 name: Platinum
-color: "#4C5C77"
-order: 1
+color: "#9A847C"
+color2: "#E9C7BD"
+order: 2
 ---

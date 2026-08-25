@@ -5,6 +5,7 @@ description: The flagship forum for steel reuse. Held annually in London.
 permalink: /uk/
 region: uk
 ---
+{% from "sponsor-grid.njk" import sponsorGrid %}
 <section class="hero" style="padding-bottom:0;">
   <div class="wrap">
     <h1>The flagship forum for steel reuse</h1>
@@ -37,6 +38,18 @@ region: uk
     <p class="prose" style="margin-top:28px;"><strong>Who attends.</strong> Circular Steel UK attracts senior decision-makers and technical specialists from across the built environment ecosystem, creating a uniquely focused and collaborative forum. The event is supported by leading organisations across engineering, construction and materials, reflecting a shared commitment to accelerating reuse in practice.</p>
   </div>
 </section>
+
+{% set ukPartners = programmePartners.uk | resolveSponsors(collections.sponsors, collections.tiers) %}
+{% if ukPartners.length %}
+<section>
+  <div class="wrap">
+    <h2 class="section-title"><span class="kicker">Backed by</span>Programme Partners</h2>
+    <div class="grid-3">
+      {{ sponsorGrid(ukPartners, collections.tiers) }}
+    </div>
+  </div>
+</section>
+{% endif %}
 
 {% set ukEvents = collections.events | byRegion("uk") %}
 <section>

@@ -1,0 +1,21 @@
+{#
+  Renders one ribbon card per resolved sponsor ({ profile, tier, note }, as
+  returned by the resolveSponsors filter). Caller wraps the output in
+  whichever grid class fits the section (grid-3, grid-4, etc).
+#}
+{% macro sponsorGrid(sponsors, tiers) %}
+  {% for s in sponsors %}
+  <a class="card-link" href="{{ s.profile.url }}">
+    <div class="card tier-ribbon" style="--tc1: {{ s.tier | tierColor(tiers) }}; --tc2: {{ s.tier | tierColor2(tiers) }};">
+      <div class="ribbon"><span>{{ s.tier }}</span></div>
+      <div class="body">
+        {% if s.profile.data.logo %}
+        <div class="sponsor-logo"><img src="{{ s.profile.data.logo }}" alt="{{ s.profile.data.title }}"></div>
+        {% endif %}
+        <h3>{{ s.profile.data.title }}</h3>
+        {% if s.note %}<p>{{ s.note }}</p>{% endif %}
+      </div>
+    </div>
+  </a>
+  {% endfor %}
+{% endmacro %}

@@ -3,6 +3,7 @@ layout: base.njk
 title: Steel Reuse & Recycling
 description: Circular Steel is the leading industry platform dedicated to advancing the reuse of structural steel.
 ---
+{% from "sponsor-grid.njk" import sponsorGrid %}
 <div class="hero hero-photo">
   <div class="wrap">
     <div class="hero-grid">
@@ -113,6 +114,19 @@ description: Circular Steel is the leading industry platform dedicated to advanc
   </div>
 </section>
 
+{% set playbookPartners = programmePartners.playbook | resolveSponsors(collections.sponsors, collections.tiers) %}
+{% if playbookPartners.length %}
+<section>
+  <div class="wrap">
+    <h2 class="section-title"><span class="kicker">Also from us</span>Reuse Playbook</h2>
+    <p class="prose" style="margin-bottom:24px; max-width:70ch;">Our practical guide to specifying and delivering reused steel, backed by its own sponsors. Reuse Playbook has a home of its own at <a href="https://reuseplaybook.com" target="_blank" rel="noopener">reuseplaybook.com</a>.</p>
+    <div class="grid-3">
+      {{ sponsorGrid(playbookPartners, collections.tiers) }}
+    </div>
+  </div>
+</section>
+{% endif %}
+
 <section class="wash">
   <div class="wrap">
     <h2 class="section-title"><span class="kicker">Six years running</span>Moments from past events</h2>
@@ -127,12 +141,24 @@ description: Circular Steel is the leading industry platform dedicated to advanc
   </div>
 </section>
 
+{% set globalPartners = programmePartners.global | resolveSponsors(collections.sponsors, collections.tiers) %}
+{% if globalPartners.length %}
+<section>
+  <div class="wrap">
+    <h2 class="section-title"><span class="kicker">Backed by</span>Programme Partners</h2>
+    <div class="grid-3">
+      {{ sponsorGrid(globalPartners, collections.tiers) }}
+    </div>
+  </div>
+</section>
+{% endif %}
+
 {% set logoSponsors = collections.sponsors | withLogo %}
 {% if logoSponsors.length %}
 <section>
   <div class="wrap" style="text-align:center;">
     <h2 class="section-title" style="text-align:center;">
-      <span class="kicker">Backed by</span>
+      <span class="kicker">Community</span>
       Sponsors across the steel supply chain
     </h2>
     <div class="logo-strip">

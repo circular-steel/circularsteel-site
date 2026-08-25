@@ -1,5 +1,6 @@
 ---
 name: Silver
-color: "#6B7480"
-order: 3
+color: "#959596"
+color2: "#DFE0DF"
+order: 4
 ---

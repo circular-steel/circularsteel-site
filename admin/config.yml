@@ -43,6 +43,39 @@ collections:
               - { label: "Link label", name: "linkLabel", widget: "string", required: false }
               - { label: "Link URL", name: "linkUrl", widget: "string", required: false }
 
+      - name: "programmePartners"
+        label: "Programme Partners & Sponsors"
+        file: "src/_data/programmePartners.json"
+        description: "Sponsors shown on pages that aren't about one specific event — the homepage, the /uk/ hub, the /usa/ hub, and the Reuse Playbook section. For sponsors on a specific event page, add them under that event instead."
+        fields:
+          - label: "Homepage"
+            name: "global"
+            widget: "list"
+            required: false
+            hint: "Shows on the homepage, above the general sponsor logo wall."
+            fields: &partner_fields
+              - { label: "Sponsor", name: "sponsor", widget: "relation", collection: "sponsors", search_fields: ["title"], display_fields: ["title"], value_field: "slug" }
+              - { label: "Tier", name: "tier", widget: "relation", collection: "tiers", search_fields: ["name"], display_fields: ["name"], value_field: "name", hint: "Don't see the tier you need? Add it under the Sponsor Tiers collection first, then come back here." }
+              - { label: "Note (optional)", name: "note", widget: "text", required: false }
+          - label: "UK hub (/uk/)"
+            name: "uk"
+            widget: "list"
+            required: false
+            hint: "Shows on the /uk/ page itself — not on individual UK event pages."
+            fields: *partner_fields
+          - label: "USA hub (/usa/)"
+            name: "usa"
+            widget: "list"
+            required: false
+            hint: "Shows on the /usa/ page itself — not on individual USA event pages."
+            fields: *partner_fields
+          - label: "Reuse Playbook"
+            name: "playbook"
+            widget: "list"
+            required: false
+            hint: "Shows in the Reuse Playbook section of the homepage. Reuse Playbook has its own separate site — this just credits its sponsors here too."
+            fields: *partner_fields
+
   - name: "events"
     label: "Events"
     folder: "src/events"
@@ -117,5 +150,6 @@ collections:
     slug: "{{name}}"
     fields:
       - { label: "Name", name: "name", widget: "string", hint: "Exactly as it should appear, e.g. 'Platinum' — this is what you'll pick from the Tier dropdown on each event's sponsors." }
-      - { label: "Colour", name: "color", widget: "color", hint: "Used on the tier's tag and the coloured edge of sponsor cards, everywhere this tier appears." }
+      - { label: "Colour (gradient start)", name: "color", widget: "color", hint: "The sponsor card's ribbon is a two-colour gradient between this and the colour below." }
+      - { label: "Colour (gradient end)", name: "color2", widget: "color", hint: "Second colour for the gradient. Fine to set the same as above for a flat colour." }
       - { label: "Display order (lower shows first)", name: "order", widget: "number", valueType: "int", default: 99 }

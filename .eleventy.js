@@ -48,6 +48,13 @@ module.exports = function (eleventyConfig) {
     return tier ? tier.data.color : "#5a6a85";
   });
 
+  // Second stop for the tier's gradient ribbon - falls back to the same
+  // colour twice (a flat "gradient") if a tier was never given one.
+  eleventyConfig.addFilter("tierColor2", (tierName, tiersList) => {
+    const tier = findTier(tiersList, tierName);
+    return tier ? tier.data.color2 || tier.data.color : "#5a6a85";
+  });
+
   // Reverse lookup: every event a given sponsor (by slug) appears in, with
   // the tier/note they had at that specific event.
   eleventyConfig.addFilter("byRegion", (events, region) =>

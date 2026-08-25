@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 ---
+{% from "sponsor-grid.njk" import sponsorGrid %}
 <section class="hero" style="padding-bottom:0;">
   <div class="wrap">
     <span class="tag {{ 'status-past' if status == 'past' }}">{{ status | upper }}</span>
@@ -24,20 +25,7 @@ layout: base.njk
   <div class="wrap">
     <h2 class="section-title"><span class="kicker">Thank you</span>Sponsors</h2>
     <div class="grid-3">
-      {% for s in eventSponsors %}
-      <a class="card-link" href="{{ s.profile.url }}">
-        <div class="card tier-edge" style="--tier-color: {{ s.tier | tierColor(collections.tiers) }};">
-          {% if s.profile.data.logo %}
-          <div class="logo-tile" style="margin-bottom:14px;">
-            <img src="{{ s.profile.data.logo }}" alt="{{ s.profile.data.title }}">
-          </div>
-          {% endif %}
-          <span class="tag tier-dynamic" style="--tier-color: {{ s.tier | tierColor(collections.tiers) }};">{{ s.tier }}</span>
-          <h3 style="margin-top:10px;">{{ s.profile.data.title }}</h3>
-          {% if s.note %}<p>{{ s.note }}</p>{% endif %}
-        </div>
-      </a>
-      {% endfor %}
+      {{ sponsorGrid(eventSponsors, collections.tiers) }}
     </div>
   </div>
 </section>
