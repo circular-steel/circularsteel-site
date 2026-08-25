@@ -1,0 +1,5 @@
+{
+  "global": { "enabled": false, "text": "", "linkLabel": "", "linkUrl": "" },
+  "uk": { "enabled": false, "text": "", "linkLabel": "", "linkUrl": "" },
+  "usa": { "enabled": false, "text": "", "linkLabel": "", "linkUrl": "" }
+}

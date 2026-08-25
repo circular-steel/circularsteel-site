@@ -9,6 +9,40 @@ media_folder: "src/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
+  - name: "settings"
+    label: "Site Settings"
+    editor: { preview: false }
+    files:
+      - name: "banner"
+        label: "Promotional Banner"
+        file: "src/_data/banner.json"
+        description: "The thin bar at the very top of the site. Set a global one for everywhere, and/or separate ones for just the UK or USA pages - if both a region banner and the global one are switched on for the same page, the region one wins."
+        fields:
+          - label: "Sitewide (shows everywhere unless a region banner below overrides it)"
+            name: "global"
+            widget: "object"
+            fields:
+              - { label: "Show this banner", name: "enabled", widget: "boolean", default: false }
+              - { label: "Text", name: "text", widget: "string", required: false }
+              - { label: "Link label", name: "linkLabel", widget: "string", required: false, hint: "e.g. 'Get tickets'" }
+              - { label: "Link URL", name: "linkUrl", widget: "string", required: false }
+          - label: "UK pages only (the /uk/ hub and every UK event page)"
+            name: "uk"
+            widget: "object"
+            fields:
+              - { label: "Show this banner", name: "enabled", widget: "boolean", default: false }
+              - { label: "Text", name: "text", widget: "string", required: false }
+              - { label: "Link label", name: "linkLabel", widget: "string", required: false }
+              - { label: "Link URL", name: "linkUrl", widget: "string", required: false }
+          - label: "USA pages only (the /usa/ hub and every USA event page)"
+            name: "usa"
+            widget: "object"
+            fields:
+              - { label: "Show this banner", name: "enabled", widget: "boolean", default: false }
+              - { label: "Text", name: "text", widget: "string", required: false }
+              - { label: "Link label", name: "linkLabel", widget: "string", required: false }
+              - { label: "Link URL", name: "linkUrl", widget: "string", required: false }
+
   - name: "events"
     label: "Events"
     folder: "src/events"

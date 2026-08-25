@@ -36,6 +36,28 @@
   a { color: var(--navy); }
   .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
+  .promo-banner { background: var(--navy); color: #fff; }
+  .promo-banner .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+  }
+  .promo-banner a { color: #fff; text-decoration: underline; text-underline-offset: 2px; flex-shrink: 0; }
+  .promo-banner .promo-close {
+    position: absolute;
+    right: 16px; top: 50%; transform: translateY(-50%);
+    background: none; border: none; color: rgba(255,255,255,0.7);
+    font-size: 20px; line-height: 1; cursor: pointer; padding: 4px;
+  }
+  .promo-banner .promo-close:hover { color: #fff; }
+
   header.site {
     border-bottom: 1px solid var(--line);
     position: sticky;
@@ -112,35 +134,14 @@
     overflow: hidden;
     text-align: center;
   }
-  .hero-blobs {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 0;
+  .hero.hero-photo {
+    background-image: linear-gradient(100deg, rgba(0,15,40,0.28), rgba(0,15,40,0.05) 55%), url('/images/hero-bg.jpg');
+    background-size: cover;
+    background-position: left center;
   }
-  .hero-blobs .blob { position: absolute; border-radius: 50%; }
-  .hero-blobs .blob-1 {
-    width: 50vw; height: 50vw; max-width: 680px; max-height: 680px;
-    top: -22vw; left: -16vw;
-    background: radial-gradient(circle at 45% 45%, var(--cyan-soft) 0%, rgba(234,249,255,0) 70%);
-  }
-  .hero-blobs .blob-2 {
-    width: 40vw; height: 40vw; max-width: 560px; max-height: 560px;
-    bottom: -22vw; left: 6vw;
-    border: 2px solid rgba(0,44,106,0.12);
-  }
-  .hero-blobs .blob-3 {
-    width: 16vw; height: 16vw; max-width: 200px; max-height: 200px;
-    bottom: 10%; left: 32%;
-    border: 2px solid rgba(0,179,224,0.28);
-  }
-  .hero-blobs .blob-4 {
-    width: 22px; height: 22px;
-    bottom: 22%; left: 12%;
-    background: var(--accent);
-    opacity: 0.85;
-  }
+  .hero.hero-photo h1,
+  .hero.hero-photo p.lede { color: #fff; }
+  .hero.hero-photo p.lede { color: rgba(255,255,255,0.88); }
   .hero .wrap { position: relative; z-index: 1; }
   .hero-grid {
     display: grid;
@@ -272,13 +273,26 @@
     border: 1px solid var(--line);
     border-radius: 16px;
     padding: 26px;
+    height: 100%;
+    box-sizing: border-box;
     transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
   }
   .card h3 { margin: 0 0 8px; color: var(--navy); font-size: 18px; font-weight: 700; }
   .card .meta { font-size: 13px; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
   .card p { color: var(--muted); margin: 0; font-size: 15px; }
-  a.card-link { text-decoration: none; color: inherit; display: block; }
+  a.card-link { text-decoration: none; color: inherit; display: flex; }
   a.card-link:hover .card { border-color: var(--cyan); transform: translateY(-2px); box-shadow: 0 12px 24px -16px rgba(0,44,106,0.35); }
+
+  /* Tier-coloured sponsor cards: bold edge + a light wash of the same
+     colour behind the (white) logo box, so the tile reads as belonging
+     to that tier without the logo ever sitting on a coloured background. */
+  .card.tier-edge {
+    border-top: 6px solid var(--tier-color, var(--muted));
+    background: color-mix(in srgb, var(--tier-color, var(--muted)) 7%, white);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
 
   .post-tile {
     display: block;
@@ -288,9 +302,10 @@
     border: 1px solid var(--line);
     border-radius: 16px;
     overflow: hidden;
+    box-shadow: 0 14px 28px -18px rgba(0,10,30,0.45);
     transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .post-tile:hover { border-color: var(--cyan); transform: translateY(-2px); box-shadow: 0 12px 24px -16px rgba(0,44,106,0.35); }
+  .post-tile:hover { border-color: var(--cyan); transform: translateY(-2px); box-shadow: 0 16px 30px -14px rgba(0,10,30,0.5); }
   .post-tile .thumb { aspect-ratio: 16/9; background: var(--wash); overflow: hidden; }
   .post-tile .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .post-tile .body { padding: 20px 22px; }
@@ -406,6 +421,8 @@
   .btn.solid:hover { background: var(--navy-deep); }
   .btn.on-dark { border-color: #fff; color: #fff; }
   .btn.on-dark:hover { background: #fff; color: var(--navy); }
+  .btn.on-dark.solid-white { background: #fff; color: var(--navy); }
+  .btn.on-dark.solid-white:hover { background: var(--cyan-soft); }
   .btn:active { transform: scale(0.98); }
 
   .btn-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 30px; }
@@ -461,9 +478,9 @@
   .doc-tile .doc-tile-head {
     aspect-ratio: 4 / 3;
     display: flex; align-items: center; justify-content: center;
-    background: var(--accent-color, var(--navy));
+    background: color-mix(in srgb, var(--accent-color, var(--navy)) 14%, white);
   }
-  .doc-tile .doc-tile-head svg { color: #fff; opacity: 0.9; width: 18px; height: 18px; }
+  .doc-tile .doc-tile-head svg { color: var(--accent-color, var(--navy)); opacity: 0.85; width: 18px; height: 18px; }
   .doc-tile.is-pending .doc-tile-head { background: var(--wash) !important; }
   .doc-tile.is-pending .doc-tile-head svg { color: var(--muted); }
   .doc-tile .doc-tile-body { padding: 8px 9px; }
@@ -538,6 +555,20 @@
 </style>
 </head>
 <body>
+  {% set activeBanner = null %}
+  {% if region == "uk" and banner.uk.enabled %}{% set activeBanner = banner.uk %}
+  {% elif region == "usa" and banner.usa.enabled %}{% set activeBanner = banner.usa %}
+  {% elif banner.global.enabled %}{% set activeBanner = banner.global %}
+  {% endif %}
+  {% if activeBanner %}
+  <div class="promo-banner">
+    <div class="wrap">
+      <span>{{ activeBanner.text }}</span>
+      {% if activeBanner.linkUrl %}<a href="{{ activeBanner.linkUrl }}">{{ activeBanner.linkLabel or "Find out more" }} &rarr;</a>{% endif %}
+      <button type="button" class="promo-close" aria-label="Dismiss" onclick="this.closest('.promo-banner').remove();">&times;</button>
+    </div>
+  </div>
+  {% endif %}
   <header class="site">
     <div class="wrap">
       <a class="brand" href="/">
@@ -550,7 +581,7 @@
       </button>
       <nav class="main" id="site-nav">
         {% for item in site.nav %}
-          <a href="{{ item.url }}" {% if page.url == item.url %}class="current"{% endif %}>{{ item.label }}</a>
+          <a href="{{ item.url }}" {% if page.url | isActiveNav(item.url) %}class="current"{% endif %}>{{ item.label }}</a>
         {% endfor %}
       </nav>
     </div>

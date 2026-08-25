@@ -54,6 +54,15 @@ module.exports = function (eleventyConfig) {
     (events || []).filter((e) => e.data.region === region)
   );
 
+  // A nav item is "current" if it's the exact page, or (for anything but
+  // Home) the current page's URL sits underneath it - so /uk/2026/ still
+  // highlights the UK nav item, not just /uk/ itself.
+  eleventyConfig.addFilter("isActiveNav", (pageUrl, itemUrl) => {
+    if (pageUrl === itemUrl) return true;
+    if (itemUrl === "/") return false;
+    return pageUrl.startsWith(itemUrl);
+  });
+
   eleventyConfig.addFilter("niceDate", (isoString) => {
     if (!isoString) return "";
     const d = new Date(isoString);

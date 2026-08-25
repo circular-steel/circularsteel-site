@@ -13,29 +13,46 @@ permalink: /contact/
 
 <section>
   <div class="wrap">
-    <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="contact">
-      <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+    <div class="split">
+      <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/contact/thank-you/">
+        <input type="hidden" name="form-name" value="contact">
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <div>
+          <label for="name">Name *</label>
+          <input id="name" name="name" type="text" required>
+        </div>
+        <div>
+          <label for="email">Email *</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+        <div>
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel">
+        </div>
+        <div>
+          <label for="message">Hit us with what you've got *</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <div>
+          <label style="display:flex; align-items:flex-start; gap:8px; font-weight:400; text-transform:none; letter-spacing:normal; color:var(--ink); font-size:14px;">
+            <input type="checkbox" name="newsletter" value="yes" style="width:auto; margin-top:3px;"> Sign up to our email list for updates and more.
+          </label>
+        </div>
+        <button type="submit">Send</button>
+      </form>
+
       <div>
-        <label for="name">Name *</label>
-        <input id="name" name="name" type="text" required>
+        <div class="card" style="margin-bottom:20px;">
+          <h3>Other ways to reach us</h3>
+          <p style="margin-bottom:14px;">Prefer not to fill in a form? Find us here instead.</p>
+          <p style="margin-bottom:8px;"><a href="{{ site.linkedinPage }}" target="_blank" rel="noopener">LinkedIn &rarr;</a></p>
+          <p style="margin-bottom:8px;"><a href="{{ site.linkedinGroup }}" target="_blank" rel="noopener">LinkedIn Group &rarr;</a></p>
+          <p><a href="{{ site.substack }}" target="_blank" rel="noopener">Newsletter on Substack &rarr;</a></p>
+        </div>
+        <div class="split-media media-frame">
+          <img src="/images/gallery/2023-networking.jpg" alt="Circular Steel networking at a past event">
+        </div>
       </div>
-      <div>
-        <label for="email">Email *</label>
-        <input id="email" name="email" type="email" required>
-      </div>
-      <div>
-        <label for="phone">Phone</label>
-        <input id="phone" name="phone" type="tel">
-      </div>
-      <div>
-        <label for="message">Hit us with what you've got *</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-      </div>
-      <div>
-        <label><input type="checkbox" name="newsletter" value="yes" style="width:auto; display:inline-block;"> Sign up to our email list for updates and more.</label>
-      </div>
-      <button type="submit">Send</button>
-    </form>
+    </div>
   </div>
 </section>

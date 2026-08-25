@@ -3,16 +3,15 @@ layout: base.njk
 title: Steel Reuse & Recycling
 description: Circular Steel is the leading industry platform dedicated to advancing the reuse of structural steel.
 ---
-<div class="hero">
-  {% include "rings.njk" %}
+<div class="hero hero-photo">
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
         <h1>Shaping the future of steel reuse</h1>
         <p class="lede">Circular Steel is the leading industry platform dedicated to advancing the reuse of structural steel.</p>
         <div class="btn-row">
-          <a class="btn solid" href="/uk/">Circular Steel UK</a>
-          <a class="btn solid" href="/usa/">Circular Steel USA</a>
+          <a class="btn on-dark solid-white" href="/uk/">Circular Steel UK</a>
+          <a class="btn on-dark" href="/usa/">Circular Steel USA</a>
         </div>
       </div>
       <div class="media-frame video" id="hero-video" data-yt="W3pWW-oixjE" style="cursor:pointer; background-image:url('https://img.youtube.com/vi/W3pWW-oixjE/hqdefault.jpg'); background-size:cover; background-position:center;">
@@ -147,7 +146,7 @@ description: Circular Steel is the leading industry platform dedicated to advanc
 </section>
 {% endif %}
 
-<section class="wash">
+<section class="dark">
   <div class="wrap">
     <h2 class="section-title"><span class="kicker">The newsletter</span>Latest from Circular Steel on Substack</h2>
     {% if substackPosts.length %}
@@ -167,7 +166,7 @@ description: Circular Steel is the leading industry platform dedicated to advanc
     </div>
     {% endif %}
     <div style="text-align:center; margin-top:32px;">
-      <a class="btn solid" href="{{ site.substack }}" target="_blank" rel="noopener">Subscribe on Substack</a>
+      <a class="btn on-dark solid-white" href="{{ site.substack }}" target="_blank" rel="noopener">Subscribe on Substack</a>
     </div>
   </div>
 </section>
