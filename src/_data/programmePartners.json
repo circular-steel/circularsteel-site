@@ -16,5 +16,10 @@
       "tier": "USA Headline"
     }
   ],
-  "playbook": []
+  "playbook": [
+    {
+      "sponsor": "bourne-group",
+      "tier": "Playbook Supporting"
+    }
+  ]
 }
