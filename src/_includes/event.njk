@@ -18,7 +18,7 @@ layout: base.njk
   </div>
 </section>
 
-{% set eventSponsors = sponsors | resolveSponsors(collections.sponsors) %}
+{% set eventSponsors = sponsors | resolveSponsors(collections.sponsors, collections.tiers) %}
 {% if eventSponsors.length %}
 <section class="wash">
   <div class="wrap">
@@ -26,13 +26,13 @@ layout: base.njk
     <div class="grid-3">
       {% for s in eventSponsors %}
       <a class="card-link" href="{{ s.profile.url }}">
-        <div class="card tier-edge tier-{{ s.tier | tierClass }}">
+        <div class="card tier-edge" style="--tier-color: {{ s.tier | tierColor(collections.tiers) }};">
           {% if s.profile.data.logo %}
           <div class="logo-tile" style="margin-bottom:14px;">
             <img src="{{ s.profile.data.logo }}" alt="{{ s.profile.data.title }}">
           </div>
           {% endif %}
-          <span class="tag tier-{{ s.tier | tierClass }}">{{ s.tier }}</span>
+          <span class="tag tier-dynamic" style="--tier-color: {{ s.tier | tierColor(collections.tiers) }};">{{ s.tier }}</span>
           <h3 style="margin-top:10px;">{{ s.profile.data.title }}</h3>
           {% if s.note %}<p>{{ s.note }}</p>{% endif %}
         </div>
@@ -84,7 +84,7 @@ layout: base.njk
       <span class="doc-tile is-pending">
       {% endif %}
         <span class="doc-tile-head" style="{% if d.color %}--accent-color: {{ d.color }};{% endif %}">
-          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
         </span>
         <span class="doc-tile-body">
           <span class="doc-title">{{ d.label }}</span>

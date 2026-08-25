@@ -11,11 +11,23 @@ module.exports = function (eleventyConfig) {
     collectionApi.getFilteredByTag("sponsors")
   );
 
-  const TIER_ORDER = { Platinum: 1, Gold: 2, Silver: 3, "Networking Drinks": 4 };
+  eleventyConfig.addCollection("tiers", (collectionApi) =>
+    collectionApi.getFilteredByTag("tiers").sort((a, b) => (a.data.order || 99) - (b.data.order || 99))
+  );
+
+  // Case-insensitive lookup of a tier's order/colour by name, with safe
+  // fallbacks so an unrecognised tier name never breaks a build.
+  function findTier(tiersList, tierName) {
+    if (!tierName) return null;
+    return (tiersList || []).find(
+      (t) => (t.data.name || "").toLowerCase() === tierName.toLowerCase()
+    );
+  }
 
   // Given an event's own `sponsors` list ([{ sponsor: slug, tier, note }, ...]),
   // resolve each entry to the full sponsor profile so templates can link to it.
-  eleventyConfig.addFilter("resolveSponsors", (sponsorRefs, allSponsors) => {
+  // Sorts using the order defined on each tier in the Tiers collection (CMS-managed).
+  eleventyConfig.addFilter("resolveSponsors", (sponsorRefs, allSponsors, tiersList) => {
     if (!sponsorRefs) return [];
     return sponsorRefs
       .map((ref) => {
@@ -24,17 +36,22 @@ module.exports = function (eleventyConfig) {
         return { profile, tier: ref.tier, note: ref.note };
       })
       .filter(Boolean)
-      .sort((a, b) => (TIER_ORDER[a.tier] || 99) - (TIER_ORDER[b.tier] || 99));
+      .sort((a, b) => {
+        const orderA = (findTier(tiersList, a.tier) || {}).data?.order ?? 99;
+        const orderB = (findTier(tiersList, b.tier) || {}).data?.order ?? 99;
+        return orderA - orderB;
+      });
+  });
+
+  eleventyConfig.addFilter("tierColor", (tierName, tiersList) => {
+    const tier = findTier(tiersList, tierName);
+    return tier ? tier.data.color : "#5a6a85";
   });
 
   // Reverse lookup: every event a given sponsor (by slug) appears in, with
   // the tier/note they had at that specific event.
   eleventyConfig.addFilter("byRegion", (events, region) =>
     (events || []).filter((e) => e.data.region === region)
-  );
-
-  eleventyConfig.addFilter("tierClass", (tier) =>
-    (tier || "other").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")
   );
 
   eleventyConfig.addFilter("niceDate", (isoString) => {

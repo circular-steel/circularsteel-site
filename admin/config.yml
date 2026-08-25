@@ -32,7 +32,7 @@ collections:
         hint: "Pick an existing sponsor profile — create it first under the Sponsors collection if it doesn't exist yet."
         fields:
           - { label: "Sponsor", name: "sponsor", widget: "relation", collection: "sponsors", search_fields: ["title"], display_fields: ["title"], value_field: "slug" }
-          - { label: "Tier", name: "tier", widget: "select", options: ["Platinum", "Gold", "Silver", "Networking Drinks", "Other"] }
+          - { label: "Tier", name: "tier", widget: "relation", collection: "tiers", search_fields: ["name"], display_fields: ["name"], value_field: "name", hint: "Don't see the tier you need? Add it under the Sponsor Tiers collection first, then come back here." }
           - { label: "Note (optional, specific to this event)", name: "note", widget: "text", required: false }
       - label: "Video gallery"
         name: "videos"
@@ -74,3 +74,14 @@ collections:
           - { label: "Name", name: "name", widget: "string" }
           - { label: "Role", name: "role", widget: "string", required: false }
       - { label: "About / body copy", name: "body", widget: "markdown" }
+
+  - name: "tiers"
+    label: "Sponsor Tiers"
+    folder: "src/tiers"
+    create: true
+    identifier_field: name
+    slug: "{{name}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string", hint: "Exactly as it should appear, e.g. 'Platinum' — this is what you'll pick from the Tier dropdown on each event's sponsors." }
+      - { label: "Colour", name: "color", widget: "color", hint: "Used on the tier's tag and the coloured edge of sponsor cards, everywhere this tier appears." }
+      - { label: "Display order (lower shows first)", name: "order", widget: "number", valueType: "int", default: 99 }
