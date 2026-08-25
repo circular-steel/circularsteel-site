@@ -8,6 +8,7 @@ module.exports = {
     { label: "Home", url: "/" },
     { label: "UK", url: "/uk/" },
     { label: "USA", url: "/usa/" },
+    { label: "Playbook", url: "https://www.reuseplaybook.com", external: true },
     { label: "About", url: "/about/" },
     { label: "Resources", url: "/resources/" },
     { label: "Contact", url: "/contact/" },
