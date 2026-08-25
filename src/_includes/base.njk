@@ -390,8 +390,10 @@
   .stat .label { margin-top: 8px; font-size: 14px; color: var(--muted); }
 
   /* Two rows of logos, each scrolling continuously (opposite directions)
-     in a seamless loop - the track renders each row's logos twice back
-     to back, then animates exactly -50% so the loop point is invisible. */
+     in a seamless loop - the track renders each row's logos several
+     times back to back (enough to always overflow the row, even with
+     only a couple of logos), then animates by exactly one copy-width
+     (1 / --repeat-count) so the loop point is invisible. */
   .logo-marquee { display: flex; flex-direction: column; gap: 14px; }
   .logo-marquee-row {
     overflow: hidden;
@@ -408,7 +410,7 @@
   .logo-marquee-row:hover .logo-marquee-track { animation-play-state: paused; }
   @keyframes logo-marquee-scroll {
     from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    to { transform: translateX(calc(-100% / var(--repeat-count, 2))); }
   }
   @media (prefers-reduced-motion: reduce) {
     .logo-marquee-track { animation: none; }

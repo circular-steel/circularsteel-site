@@ -96,6 +96,23 @@ module.exports = function (eleventyConfig) {
     return [list.slice(0, mid), list.slice(mid)];
   });
 
+  // Repeats a marquee row's logos enough times that the strip always
+  // overflows its container - with only 2-3 logos, one or two copies
+  // leaves visible empty space (looks left-aligned); this pads it out
+  // so it never runs dry, and self-corrects as more logos are added.
+  // `repeats` is handed back so the CSS animation can loop by exactly
+  // 1/repeats of the track's width, however many copies that turns out
+  // to be.
+  eleventyConfig.addFilter("marqueeRow", (arr) => {
+    const list = arr || [];
+    if (!list.length) return { items: [], repeats: 1 };
+    const targetCount = 16;
+    const repeats = Math.max(2, Math.ceil(targetCount / list.length));
+    const items = [];
+    for (let i = 0; i < repeats; i++) items.push(...list);
+    return { items, repeats };
+  });
+
   eleventyConfig.addFilter("eventsForSponsor", (events, sponsorSlug) => {
     const rows = [];
     events.forEach((event) => {

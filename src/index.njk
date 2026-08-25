@@ -149,26 +149,24 @@ description: Circular Steel is the leading industry platform dedicated to advanc
       Sponsors across the steel supply chain
     </h2>
     {% set logoRows = logoSponsors | splitInHalf %}
+    {% set row1 = logoRows[0] | marqueeRow %}
+    {% set row2 = logoRows[1] | marqueeRow %}
     <div class="logo-marquee">
       <div class="logo-marquee-row">
-        <div class="logo-marquee-track">
-          {% for row in [logoRows[0], logoRows[0]] %}
-          {% for s in row %}
+        <div class="logo-marquee-track" style="--repeat-count: {{ row1.repeats }};">
+          {% for s in row1.items %}
           <a class="logo-tile" href="{{ s.url }}" title="{{ s.data.title }}">
             <img src="{{ s.data.logo }}" alt="{{ s.data.title }}">
           </a>
-          {% endfor %}
           {% endfor %}
         </div>
       </div>
       <div class="logo-marquee-row reverse">
-        <div class="logo-marquee-track">
-          {% for row in [logoRows[1], logoRows[1]] %}
-          {% for s in row %}
+        <div class="logo-marquee-track" style="--repeat-count: {{ row2.repeats }};">
+          {% for s in row2.items %}
           <a class="logo-tile" href="{{ s.url }}" title="{{ s.data.title }}">
             <img src="{{ s.data.logo }}" alt="{{ s.data.title }}">
           </a>
-          {% endfor %}
           {% endfor %}
         </div>
       </div>
