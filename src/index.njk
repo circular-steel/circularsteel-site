@@ -12,7 +12,7 @@ description: Circular Steel is the leading industry platform dedicated to advanc
         <p class="lede">Circular Steel is the leading industry platform dedicated to advancing the reuse of structural steel.</p>
         <div class="btn-row">
           <a class="btn solid" href="/uk/">Circular Steel UK</a>
-          <a class="btn" href="/usa/">Circular Steel USA</a>
+          <a class="btn solid" href="/usa/">Circular Steel USA</a>
         </div>
       </div>
       <div class="media-frame video" id="hero-video" data-yt="W3pWW-oixjE" style="cursor:pointer; background-image:url('https://img.youtube.com/vi/W3pWW-oixjE/hqdefault.jpg'); background-size:cover; background-position:center;">
@@ -147,11 +147,11 @@ description: Circular Steel is the leading industry platform dedicated to advanc
 </section>
 {% endif %}
 
-{% if substackPosts.length %}
-<section>
+<section class="wash">
   <div class="wrap">
-    <h2 class="section-title"><span class="kicker">From the newsletter</span>Latest from Circular Steel on Substack</h2>
-    <div class="grid-2">
+    <h2 class="section-title"><span class="kicker">The newsletter</span>Latest from Circular Steel on Substack</h2>
+    {% if substackPosts.length %}
+    <div class="grid-3 tiles-sm">
       {% for post in substackPosts %}
       <a class="post-tile" href="{{ post.link }}" target="_blank" rel="noopener">
         {% if post.image %}
@@ -165,14 +165,9 @@ description: Circular Steel is the leading industry platform dedicated to advanc
       </a>
       {% endfor %}
     </div>
-  </div>
-</section>
-{% endif %}
-
-<section class="dark">
-  <div class="wrap" style="text-align:center;">
-    <h2 class="section-title" style="text-align:center;">Sign up to the newsletter</h2>
-    <p style="margin:0 auto 24px; color:rgba(255,255,255,0.75); max-width:520px;">The Circular Steel newsletter on Substack &mdash; updates on events, reuse projects and the market.</p>
-    <a class="btn on-dark" href="{{ site.substack }}" target="_blank" rel="noopener">Subscribe on Substack</a>
+    {% endif %}
+    <div style="text-align:center; margin-top:32px;">
+      <a class="btn solid" href="{{ site.substack }}" target="_blank" rel="noopener">Subscribe on Substack</a>
+    </div>
   </div>
 </section>

@@ -33,6 +33,10 @@ module.exports = function (eleventyConfig) {
     (events || []).filter((e) => e.data.region === region)
   );
 
+  eleventyConfig.addFilter("tierClass", (tier) =>
+    (tier || "other").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")
+  );
+
   eleventyConfig.addFilter("niceDate", (isoString) => {
     if (!isoString) return "";
     const d = new Date(isoString);

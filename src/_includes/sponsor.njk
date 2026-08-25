@@ -39,8 +39,9 @@ layout: base.njk
     <div class="grid-3">
       {% for row in history %}
       <a class="card-link" href="{{ row.event.url }}">
-        <div class="card">
-          <div class="meta">{{ row.tier }} &middot; {{ row.event.data.year }}</div>
+        <div class="card tier-edge tier-{{ row.tier | tierClass }}">
+          <span class="tag tier-{{ row.tier | tierClass }}">{{ row.tier }}</span>
+          <div class="meta" style="margin-top:10px;">{{ row.event.data.year }}</div>
           <h3>{{ row.event.data.title }}</h3>
           {% if row.note %}<p>{{ row.note }}</p>{% endif %}
         </div>

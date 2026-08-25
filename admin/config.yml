@@ -34,6 +34,16 @@ collections:
           - { label: "Sponsor", name: "sponsor", widget: "relation", collection: "sponsors", search_fields: ["title"], display_fields: ["title"], value_field: "slug" }
           - { label: "Tier", name: "tier", widget: "select", options: ["Platinum", "Gold", "Silver", "Networking Drinks", "Other"] }
           - { label: "Note (optional, specific to this event)", name: "note", widget: "text", required: false }
+      - label: "Video gallery"
+        name: "videos"
+        widget: "list"
+        required: false
+        hint: "Click-to-play video tiles (e.g. session recordings, sponsor films). Doesn't autoplay, so it's safe to add lots."
+        fields:
+          - { label: "YouTube video ID", name: "id", widget: "string", hint: "The part after v= or youtu.be/, e.g. W3pWW-oixjE" }
+          - { label: "Label", name: "label", widget: "string" }
+      - { label: "Video gallery heading (optional)", name: "videos_title", widget: "string", required: false, hint: "Defaults to 'More from the day' if left blank." }
+      - { label: "Downloads display style", name: "download_style", widget: "select", options: ["list", "tile"], default: "list", required: false, hint: "'list' is a compact wide row per download; 'tile' is a squarer card with a bigger colour accent." }
       - label: "Downloads"
         name: "downloads"
         widget: "list"
@@ -41,6 +51,8 @@ collections:
         fields:
           - { label: "Label", name: "label", widget: "string" }
           - { label: "File", name: "url", widget: "file", required: false }
+          - { label: "One-line description (optional, only shown in 'tile' style)", name: "description", widget: "string", required: false }
+          - { label: "Accent colour (optional hex, e.g. #00b3e0)", name: "color", widget: "string", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "sponsors"

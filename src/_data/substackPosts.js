@@ -7,7 +7,7 @@ module.exports = async function () {
     const xml = await res.text();
     const items = xml.match(/<item>[\s\S]*?<\/item>/g) || [];
 
-    return items.slice(0, 2).map((item) => {
+    return items.slice(0, 3).map((item) => {
       const title = (item.match(/<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>/) || [])[1] || "";
       const description = (item.match(/<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/) || [])[1] || "";
       const link = (item.match(/<link>([\s\S]*?)<\/link>/) || [])[1] || "";
