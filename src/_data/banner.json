@@ -1,5 +1,20 @@
 {
-  "global": { "enabled": false, "text": "", "linkLabel": "", "linkUrl": "" },
-  "uk": { "enabled": false, "text": "", "linkLabel": "", "linkUrl": "" },
-  "usa": { "enabled": false, "text": "", "linkLabel": "", "linkUrl": "" }
+  "global": {
+    "enabled": false,
+    "text": "",
+    "linkLabel": "",
+    "linkUrl": ""
+  },
+  "uk": {
+    "enabled": true,
+    "text": "Get your ticket now",
+    "linkLabel": "",
+    "linkUrl": "www.eventbrite.co.uk"
+  },
+  "usa": {
+    "enabled": false,
+    "text": "",
+    "linkLabel": "",
+    "linkUrl": ""
+  }
 }
