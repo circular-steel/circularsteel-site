@@ -6,7 +6,7 @@
     "linkUrl": ""
   },
   "uk": {
-    "enabled": true,
+    "enabled": false,
     "text": "Get your ticket now",
     "linkLabel": "",
     "linkUrl": "www.eventbrite.co.uk"
