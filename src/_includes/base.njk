@@ -8,7 +8,7 @@
 <link rel="icon" type="image/png" href="/images/circular-steel-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #002c6a;
@@ -21,18 +21,19 @@
     --line: #e3e9f2;
     --paper: #ffffff;
     --wash: #f6faff;
-    --heading-font: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --body-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --heading-font: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --body-font: "Source Serif 4", Georgia, "Times New Roman", serif;
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
-    font-family: var(--body-font);
+    font-family: var(--heading-font);
     color: var(--ink);
     background: var(--paper);
     line-height: 1.65;
   }
   h1, h2, h3, .brand span { font-family: var(--heading-font); }
+  p { font-family: var(--body-font); }
   a { color: var(--navy); }
   .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
@@ -75,7 +76,7 @@
   }
   .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
   .brand img { height: 36px; width: auto; }
-  .brand span { font-weight: 800; color: var(--navy); font-size: 17px; letter-spacing: -0.01em; }
+  .brand span { font-weight: 700; color: var(--navy); font-size: 18px; letter-spacing: 0.01em; text-transform: uppercase; }
   nav.main { display: flex; gap: 4px; flex-wrap: wrap; }
   nav.main a {
     text-decoration: none;
@@ -155,12 +156,13 @@
   .hero-grid .hero-copy p.lede { margin: 0; max-width: 500px; }
   .hero-grid .hero-copy .btn-row { justify-content: flex-start; }
   .hero h1 {
-    font-weight: 800;
-    font-size: clamp(32px, 4.2vw, 50px);
+    font-weight: 700;
+    font-size: clamp(34px, 4.6vw, 56px);
     color: var(--navy);
     margin: 0 0 18px;
-    letter-spacing: -0.02em;
-    line-height: 1.08;
+    letter-spacing: 0;
+    line-height: 1.05;
+    text-transform: uppercase;
   }
   .hero p.lede {
     font-size: 19px;
@@ -244,11 +246,11 @@
     .gallery .g-b { grid-column: span 2; grid-row: span 1; }
   }
   h2.section-title {
-    font-weight: 800;
+    font-weight: 600;
     color: var(--navy);
-    font-size: 27px;
+    font-size: 29px;
     margin: 0 0 30px;
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
   }
   h2.section-title .kicker {
     display: block;
@@ -351,7 +353,8 @@
     transition: padding-left 0.15s ease;
   }
   .archive-row:hover { padding-left: 10px; color: var(--navy); }
-  .archive-row .yr { font-family: var(--heading-font); font-weight: 800; color: var(--cyan); font-size: 15px; width: 46px; flex-shrink: 0; }
+  .archive-row .yr { font-family: var(--heading-font); font-weight: 700; color: var(--cyan); font-size: 15px; width: 46px; flex-shrink: 0; }
+  .archive-row .as { font-family: var(--body-font); }
   .archive-row .at { font-weight: 700; color: var(--navy); flex: 1; }
   .archive-row .as { color: var(--muted); font-size: 14px; display: none; }
   @media (min-width: 640px) {
@@ -359,7 +362,7 @@
   }
 
   .stat { text-align: center; }
-  .stat .number { font-family: var(--heading-font); font-weight: 800; font-size: 40px; color: var(--navy); line-height: 1; }
+  .stat .number { font-family: var(--heading-font); font-weight: 700; font-size: 42px; color: var(--navy); line-height: 1; }
   .stat .label { margin-top: 8px; font-size: 14px; color: var(--muted); }
 
   .logo-strip { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; align-items: center; }
@@ -550,7 +553,7 @@
   footer.site .copy { font-size: 13px; color: var(--muted); }
 
   .prose { max-width: 720px; margin: 0 auto; }
-  .prose h2 { color: var(--navy); font-size: 22px; font-weight: 800; margin-top: 36px; }
+  .prose h2 { color: var(--navy); font-size: 23px; font-weight: 600; margin-top: 36px; }
   .prose p { color: var(--ink); }
 </style>
 </head>
