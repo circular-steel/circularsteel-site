@@ -1,7 +1,15 @@
+const markdownIt = require("markdown-it");
+const md = markdownIt({ html: false, linkify: true });
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addPassthroughCopy("src/files");
+
+  // For CMS "markdown" widget fields stored as plain strings in JSON data
+  // (e.g. pages.about.body) - .md content files get this for free from
+  // Eleventy's own template engine, but a JSON string field doesn't.
+  eleventyConfig.addFilter("markdown", (content) => md.render(content || ""));
 
   eleventyConfig.addCollection("events", (collectionApi) =>
     collectionApi.getFilteredByTag("events").sort((a, b) => b.data.year - a.data.year)

@@ -8,8 +8,8 @@ region: uk
 {% from "sponsor-grid.njk" import sponsorGrid %}
 <section class="hero" style="padding-bottom:0;">
   <div class="wrap">
-    <h1>The flagship forum for steel reuse</h1>
-    <p class="lede">Circular Steel UK is the industry's leading event dedicated to making structural steel reuse viable at scale. Held annually in London, it brings together the organisations delivering the UK's most significant reuse projects alongside the policymakers, designers and supply chain leaders enabling market growth.</p>
+    <h1>{{ pages.uk.heroTitle }}</h1>
+    <p class="lede">{{ pages.uk.heroLede }}</p>
   </div>
 </section>
 
@@ -27,7 +27,7 @@ region: uk
 <section class="wash">
   <div class="wrap">
     <h2 class="section-title"><span class="kicker">Focus</span>Where strategy meets delivery</h2>
-    <p class="prose" style="margin-bottom:20px;">The UK market sits at the forefront of practical steel reuse. Circular Steel UK reflects this maturity &mdash; moving beyond theory and into technical, commercial and regulatory delivery. The event focuses on:</p>
+    <p class="prose" style="margin-bottom:20px;">{{ pages.uk.focusIntro }}</p>
     <div class="grid-3">
       <div class="card"><p>Real project case studies</p></div>
       <div class="card"><p>Deconstruction, testing and certification</p></div>
@@ -35,7 +35,7 @@ region: uk
       <div class="card"><p>Commercials and risk</p></div>
       <div class="card"><p>Standards, policy and planning drivers</p></div>
     </div>
-    <p class="prose" style="margin-top:28px;"><strong>Who attends.</strong> Circular Steel UK attracts senior decision-makers and technical specialists from across the built environment ecosystem, creating a uniquely focused and collaborative forum. The event is supported by leading organisations across engineering, construction and materials, reflecting a shared commitment to accelerating reuse in practice.</p>
+    <p class="prose" style="margin-top:28px;"><strong>Who attends.</strong> {{ pages.uk.whoAttends }}</p>
   </div>
 </section>
 

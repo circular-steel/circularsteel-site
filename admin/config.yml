@@ -76,6 +76,64 @@ collections:
             hint: "Shows in the Reuse Playbook section of the homepage. Reuse Playbook has its own separate site — this just credits its sponsors here too."
             fields: *partner_fields
 
+  - name: "pages"
+    label: "Page Content"
+    editor: { preview: false }
+    description: "The wording on each page - headings, intro paragraphs, etc. Structural bits (forms, event cards, focus-point tiles) aren't editable here, just the surrounding copy."
+    files:
+      - name: "home"
+        label: "Homepage"
+        file: "src/_data/pages/home.json"
+        fields:
+          - { label: "Hero heading", name: "heroTitle", widget: "string" }
+          - { label: "Hero subtext", name: "heroLede", widget: "text" }
+          - { label: "Intro paragraph (below the hero)", name: "introText", widget: "text" }
+          - { label: "\"Why it matters\" heading", name: "whyMattersHeading", widget: "string" }
+          - { label: "\"Why it matters\" paragraph 1", name: "whyMattersBody1", widget: "text" }
+          - { label: "\"Why it matters\" paragraph 2 (after \"A platform built around action.\")", name: "whyMattersBody2", widget: "text" }
+          - { label: "UK series description", name: "twoSeriesUkText", widget: "text" }
+          - { label: "USA series description", name: "twoSeriesUsaText", widget: "text" }
+      - name: "uk"
+        label: "UK Hub Page (/uk/)"
+        file: "src/_data/pages/uk.json"
+        fields:
+          - { label: "Hero heading", name: "heroTitle", widget: "string" }
+          - { label: "Hero subtext", name: "heroLede", widget: "text" }
+          - { label: "Focus section intro", name: "focusIntro", widget: "text" }
+          - { label: "\"Who attends\" paragraph (after \"Who attends.\")", name: "whoAttends", widget: "text" }
+      - name: "usa"
+        label: "USA Hub Page (/usa/)"
+        file: "src/_data/pages/usa.json"
+        fields:
+          - { label: "Hero heading", name: "heroTitle", widget: "string" }
+          - { label: "Hero subtext", name: "heroLede", widget: "text" }
+          - { label: "Focus section intro", name: "focusIntro", widget: "text" }
+          - { label: "Closing paragraph", name: "closingText", widget: "text" }
+      - name: "about"
+        label: "About Page"
+        file: "src/_data/pages/about.json"
+        fields:
+          - { label: "Hero heading", name: "heroTitle", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown", hint: "Supports headings, bold, and links, same as an event or sponsor body." }
+      - name: "contact"
+        label: "Contact Page"
+        file: "src/_data/pages/contact.json"
+        fields:
+          - { label: "Hero heading", name: "heroTitle", widget: "string" }
+          - { label: "Hero subtext", name: "heroLede", widget: "text" }
+      - name: "resources"
+        label: "Resources Page"
+        file: "src/_data/pages/resources.json"
+        fields:
+          - { label: "Hero heading", name: "heroTitle", widget: "string" }
+          - { label: "Hero subtext", name: "heroLede", widget: "text" }
+      - name: "help"
+        label: "Help Page"
+        file: "src/_data/pages/help.json"
+        fields:
+          - { label: "Hero heading", name: "heroTitle", widget: "string" }
+          - { label: "Hero subtext", name: "heroLede", widget: "text" }
+
   - name: "events"
     label: "Events"
     folder: "src/events"
