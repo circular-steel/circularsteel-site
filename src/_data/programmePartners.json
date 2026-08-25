@@ -13,13 +13,8 @@
   "usa": [
     {
       "sponsor": "aisc",
-      "tier": "USA Headline"
+      "tier": "USA Supporting"
     }
   ],
-  "playbook": [
-    {
-      "sponsor": "bourne-group",
-      "tier": "Playbook Supporting"
-    }
-  ]
+  "playbook": []
 }
