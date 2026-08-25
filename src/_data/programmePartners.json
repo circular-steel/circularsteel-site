@@ -15,7 +15,12 @@
       "tier": "Gold"
     }
   ],
-  "usa": [],
+  "usa": [
+    {
+      "sponsor": "aisc",
+      "tier": "USA Headline"
+    }
+  ],
   "playbook": [
     {
       "sponsor": "elliott-wood",
