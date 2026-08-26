@@ -40,7 +40,7 @@ layout: base.njk
       {% for row in history %}
       <a class="card-link" href="{{ row.event.url }}">
         <div class="card tier-ribbon" style="--tc1: {{ row.tier | tierColor(collections.tiers) }}; --tc2: {{ row.tier | tierColor2(collections.tiers) }};">
-          <div class="ribbon"><span>{{ row.tier }}</span></div>
+          <div class="ribbon"><span>{{ row.tier | displayTier }}</span></div>
           <div class="body">
             <div class="meta">{{ row.event.data.year }}</div>
             <h3>{{ row.event.data.title }}</h3>

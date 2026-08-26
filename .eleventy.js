@@ -63,6 +63,18 @@ module.exports = function (eleventyConfig) {
     return tier ? tier.data.color2 || tier.data.color : "#5a6a85";
   });
 
+  // Tiers are named with their Element in the CMS ("UK Gold", "USA Silver",
+  // "Playbook Lead") so two same-named tiers at different Elements never
+  // collide - but the page itself already establishes which Element you're
+  // looking at, so the visible label drops that leading word.
+  eleventyConfig.addFilter("displayTier", (tierName) => {
+    if (!tierName) return "";
+    for (const prefix of ["UK ", "USA ", "Playbook "]) {
+      if (tierName.startsWith(prefix)) return tierName.slice(prefix.length);
+    }
+    return tierName;
+  });
+
   // Reverse lookup: every event a given sponsor (by slug) appears in, with
   // the tier/note they had at that specific event.
   eleventyConfig.addFilter("byRegion", (events, region) =>

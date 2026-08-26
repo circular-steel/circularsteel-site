@@ -3,18 +3,13 @@
   "uk": [
     {
       "sponsor": "elliott-wood",
-      "tier": "Platinum"
+      "tier": "UK Platinum"
     },
     {
       "sponsor": "7-steel-uk",
-      "tier": "Gold"
+      "tier": "UK Gold"
     }
   ],
-  "usa": [
-    {
-      "sponsor": "aisc",
-      "tier": "USA Supporting"
-    }
-  ],
+  "usa": [],
   "playbook": []
 }
