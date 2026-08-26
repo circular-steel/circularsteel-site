@@ -1,8 +1,10 @@
 ---
 title: Meyer Borgman Johnson (MBJ)
 slug: mbj
-website: "https://mbjeng.com"
+logo: /images/uploads/mbj_full_logo.png
+website: https://mbjeng.com
 contacts:
-  - { name: "Jason Pederson", role: "Managing Director, Principal" }
+  - name: Jason Pederson
+    role: Managing Director, Principal
 ---
 A multi-specialty structural design practice: "Shape lives through structure."
