@@ -146,6 +146,7 @@ collections:
       - { label: "Region", name: "region", widget: "select", options: ["uk", "usa"] }
       - { label: "Year", name: "year", widget: "number", valueType: "int" }
       - { label: "Date", name: "date", widget: "string", hint: "e.g. 2026-06-24 or a text description" }
+      - { label: "Time (optional)", name: "time", widget: "string", required: false, hint: "e.g. 08:00–14:30 — only needed for something like a half-day event. Shown next to the date." }
       - { label: "Venue", name: "venue", widget: "string", required: false }
       - { label: "Status", name: "status", widget: "select", options: ["upcoming", "past"] }
       - { label: "Feature image", name: "image", widget: "image", required: false, hint: "Shown on the UK/USA hub page for the two most recent events." }

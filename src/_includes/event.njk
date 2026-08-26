@@ -7,7 +7,8 @@ layout: base.njk
     <span class="tag {{ 'status-past' if status == 'past' }}">{{ status | upper }}</span>
     <h1 style="margin-top:14px;">{{ title }}</h1>
     <p class="lede">
-      {% if date %}{{ date }}{% endif %}
+      {% if date %}{{ date | eventDate }}{% endif %}
+      {% if time %}, {{ time }}{% endif %}
       {% if venue %} &middot; {{ venue }}{% endif %}
     </p>
   </div>

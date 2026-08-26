@@ -6,6 +6,7 @@ permalink: /uk/
 region: uk
 ---
 {% from "sponsor-grid.njk" import sponsorGrid %}
+{% from "logo-marquee.njk" import logoMarquee %}
 <section class="hero" style="padding-bottom:0;">
   <div class="wrap">
     <h1>{{ pages.uk.heroTitle }}</h1>
@@ -13,16 +14,19 @@ region: uk
   </div>
 </section>
 
+{% set ukUpcoming = collections.events | byRegion("uk") | firstUpcoming %}
+{% if ukUpcoming %}
 <section>
   <div class="wrap" style="text-align:center;">
     <div class="card dark" style="display:inline-block; text-align:left; max-width:520px;">
       <div class="meta">Next event</div>
-      <h3>Circular Steel UK 2027</h3>
-      <p>23 June 2027 &middot; Aldgate, London. More info coming soon &mdash; hold the date, and get in touch if you want to be part of it.</p>
+      <h3><a href="{{ ukUpcoming.url }}" style="color:inherit; text-decoration:none;">{{ ukUpcoming.data.title }}</a></h3>
+      <p>{{ ukUpcoming.data.date | eventDate }}{% if ukUpcoming.data.time %}, {{ ukUpcoming.data.time }}{% endif %} &middot; {{ ukUpcoming.data.venue }}. {{ ukUpcoming.data.summary }}</p>
       <p style="margin-top:14px;"><a class="btn on-dark solid-white" href="/contact/">Get in touch</a></p>
     </div>
   </div>
 </section>
+{% endif %}
 
 <section class="wash">
   <div class="wrap">
@@ -51,7 +55,7 @@ region: uk
 </section>
 {% endif %}
 
-{% set ukEvents = collections.events | byRegion("uk") %}
+{% set ukEvents = collections.events | byRegion("uk") | excludeUpcoming %}
 <section>
   <div class="wrap">
     <h2 class="section-title"><span class="kicker">Most recent</span>Previous UK events</h2>
@@ -89,6 +93,19 @@ region: uk
         {% endif %}
       {% endfor %}
     </div>
+  </div>
+</section>
+{% endif %}
+
+{% set ukLogoSponsors = collections.sponsors | sponsorsForRegion(collections.events, "uk") %}
+{% if ukLogoSponsors.length %}
+<section>
+  <div class="wrap" style="text-align:center;">
+    <h2 class="section-title" style="text-align:center;">
+      <span class="kicker">Community</span>
+      Sponsors across the UK supply chain
+    </h2>
+    {{ logoMarquee(ukLogoSponsors) }}
   </div>
 </section>
 {% endif %}

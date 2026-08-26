@@ -4,6 +4,7 @@ title: Steel Reuse & Recycling
 description: Circular Steel is the leading industry platform dedicated to advancing the reuse of structural steel.
 ---
 {% from "sponsor-grid.njk" import sponsorGrid %}
+{% from "logo-marquee.njk" import logoMarquee %}
 <div class="hero hero-photo">
   <div class="wrap">
     <div class="hero-grid">
@@ -148,29 +149,7 @@ description: Circular Steel is the leading industry platform dedicated to advanc
       <span class="kicker">Community</span>
       Sponsors across the steel supply chain
     </h2>
-    {% set logoRows = logoSponsors | splitInHalf %}
-    {% set row1 = logoRows[0] | marqueeRow %}
-    {% set row2 = logoRows[1] | marqueeRow %}
-    <div class="logo-marquee">
-      <div class="logo-marquee-row">
-        <div class="logo-marquee-track" style="--repeat-count: {{ row1.repeats }};">
-          {% for s in row1.items %}
-          <a class="logo-tile" href="{{ s.url }}" title="{{ s.data.title }}">
-            <img src="{{ s.data.logo }}" alt="{{ s.data.title }}">
-          </a>
-          {% endfor %}
-        </div>
-      </div>
-      <div class="logo-marquee-row reverse">
-        <div class="logo-marquee-track" style="--repeat-count: {{ row2.repeats }};">
-          {% for s in row2.items %}
-          <a class="logo-tile" href="{{ s.url }}" title="{{ s.data.title }}">
-            <img src="{{ s.data.logo }}" alt="{{ s.data.title }}">
-          </a>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
+    {{ logoMarquee(logoSponsors) }}
   </div>
 </section>
 {% endif %}

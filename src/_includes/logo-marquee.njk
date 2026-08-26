@@ -1,0 +1,30 @@
+{#
+  Two rows of logo tiles, each scrolling continuously in opposite
+  directions. Caller filters/scopes the sponsor list beforehand (e.g. to
+  one region) - this macro just lays out and animates whatever it's given.
+#}
+{% macro logoMarquee(sponsors) %}
+{% set logoRows = sponsors | splitInHalf %}
+{% set row1 = logoRows[0] | marqueeRow %}
+{% set row2 = logoRows[1] | marqueeRow %}
+<div class="logo-marquee">
+  <div class="logo-marquee-row">
+    <div class="logo-marquee-track" style="--repeat-count: {{ row1.repeats }};">
+      {% for s in row1.items %}
+      <a class="logo-tile" href="{{ s.url }}" title="{{ s.data.title }}">
+        <img src="{{ s.data.logo }}" alt="{{ s.data.title }}">
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="logo-marquee-row reverse">
+    <div class="logo-marquee-track" style="--repeat-count: {{ row2.repeats }};">
+      {% for s in row2.items %}
+      <a class="logo-tile" href="{{ s.url }}" title="{{ s.data.title }}">
+        <img src="{{ s.data.logo }}" alt="{{ s.data.title }}">
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endmacro %}

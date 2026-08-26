@@ -6,6 +6,7 @@ permalink: /usa/
 region: usa
 ---
 {% from "sponsor-grid.njk" import sponsorGrid %}
+{% from "logo-marquee.njk" import logoMarquee %}
 <section class="hero" style="padding-bottom:0;">
   <div class="wrap">
     <h1>{{ pages.usa.heroTitle }}</h1>
@@ -13,16 +14,19 @@ region: usa
   </div>
 </section>
 
+{% set usaUpcoming = collections.events | byRegion("usa") | firstUpcoming %}
+{% if usaUpcoming %}
 <section>
   <div class="wrap" style="text-align:center;">
     <div class="card dark" style="display:inline-block; text-align:left; max-width:520px;">
       <div class="meta">Next event</div>
-      <h3>Circular Steel USA 2027</h3>
-      <p>13 April 2027, 08:00&ndash;14:30 &middot; Denver, CO. More info coming soon &mdash; hold the date, and get in touch if you want to be part of it.</p>
+      <h3><a href="{{ usaUpcoming.url }}" style="color:inherit; text-decoration:none;">{{ usaUpcoming.data.title }}</a></h3>
+      <p>{{ usaUpcoming.data.date | eventDate }}{% if usaUpcoming.data.time %}, {{ usaUpcoming.data.time }}{% endif %} &middot; {{ usaUpcoming.data.venue }}. {{ usaUpcoming.data.summary }}</p>
       <p style="margin-top:14px;"><a class="btn on-dark solid-white" href="/contact/">Get in touch</a></p>
     </div>
   </div>
 </section>
+{% endif %}
 
 <section class="wash">
   <div class="wrap">
@@ -50,7 +54,7 @@ region: usa
 </section>
 {% endif %}
 
-{% set usaEvents = collections.events | byRegion("usa") %}
+{% set usaEvents = collections.events | byRegion("usa") | excludeUpcoming %}
 <section>
   <div class="wrap">
     <h2 class="section-title"><span class="kicker">Most recent</span>Previous USA events</h2>
@@ -88,6 +92,19 @@ region: usa
         {% endif %}
       {% endfor %}
     </div>
+  </div>
+</section>
+{% endif %}
+
+{% set usaLogoSponsors = collections.sponsors | sponsorsForRegion(collections.events, "usa") %}
+{% if usaLogoSponsors.length %}
+<section>
+  <div class="wrap" style="text-align:center;">
+    <h2 class="section-title" style="text-align:center;">
+      <span class="kicker">Community</span>
+      Sponsors across the USA supply chain
+    </h2>
+    {{ logoMarquee(usaLogoSponsors) }}
   </div>
 </section>
 {% endif %}

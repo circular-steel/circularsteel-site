@@ -81,6 +81,24 @@ module.exports = function (eleventyConfig) {
     (events || []).filter((e) => e.data.region === region)
   );
 
+  eleventyConfig.addFilter("excludeUpcoming", (events) =>
+    (events || []).filter((e) => e.data.status !== "upcoming")
+  );
+
+  eleventyConfig.addFilter("firstUpcoming", (events) =>
+    (events || []).find((e) => e.data.status === "upcoming") || null
+  );
+
+  // Sponsors (with a logo) who've appeared on at least one event in the
+  // given region - for the region-scoped logo marquee on /uk/ and /usa/.
+  eleventyConfig.addFilter("sponsorsForRegion", (sponsors, events, region) => {
+    const slugs = new Set();
+    (events || [])
+      .filter((e) => e.data.region === region)
+      .forEach((e) => (e.data.sponsors || []).forEach((ref) => slugs.add(ref.sponsor)));
+    return (sponsors || []).filter((s) => s.data.logo && slugs.has(s.data.slug));
+  });
+
   // A nav item is "current" if it's the exact page, or (for anything but
   // Home) the current page's URL sits underneath it - so /uk/2026/ still
   // highlights the UK nav item, not just /uk/ itself.
@@ -95,6 +113,19 @@ module.exports = function (eleventyConfig) {
     const d = new Date(isoString);
     if (isNaN(d)) return "";
     return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+  });
+
+  // The Events CMS field allows either a real date or free text ("e.g.
+  // 2026-06-24 or a text description"). An unquoted YYYY-MM-DD in the
+  // frontmatter gets parsed by YAML into a real JS Date object before this
+  // filter ever sees it - left alone, Nunjucks prints that via its raw
+  // toString() ("Wed Jun 23 2027 01:00:00 GMT+0100..."). Only reformat
+  // when it's actually a Date; any free-text string passes through as-is.
+  eleventyConfig.addFilter("eventDate", (value) => {
+    if (!value) return "";
+    if (!(value instanceof Date)) return value;
+    if (isNaN(value)) return "";
+    return value.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
   });
 
   eleventyConfig.addFilter("withLogo", (sponsors) =>
