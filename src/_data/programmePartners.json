@@ -1,15 +1,6 @@
 {
   "global": [],
-  "uk": [
-    {
-      "sponsor": "elliott-wood",
-      "tier": "UK Platinum"
-    },
-    {
-      "sponsor": "7-steel-uk",
-      "tier": "UK Gold"
-    }
-  ],
+  "uk": [],
   "usa": [],
   "playbook": []
 }
