@@ -4,8 +4,6 @@ slug: skanska
 logo: /images/uploads/skanska_logotype_posblue.svg
 website: https://www.skanska.co.uk
 contacts:
-  - name: Dan Morrissey
-    role: Commercial Director, Building
   - name: Alison Davis
     role: Head of Environment, Building
 ---
