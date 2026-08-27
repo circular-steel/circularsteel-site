@@ -4,5 +4,6 @@ slug: multiplex
 logo: /images/uploads/multiplex.png
 contacts:
   - name: Jonathan Bailey
+    role: Engineering, New Business & Operations
 ---
 Creating structures that endure, combining sustainable design with world-class construction expertise.
