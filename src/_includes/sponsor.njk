@@ -1,6 +1,18 @@
 ---
 layout: base.njk
 ---
+{% if featured and heroImage %}
+<section class="hero hero-photo" style="padding-bottom:0; --hero-img: url('{{ heroImage }}'); --hero-pos: center;">
+  <div class="wrap">
+    {% if logo %}
+    <div class="logo-tile large" style="margin: 0 auto 20px; background: #fff;">
+      <img src="{{ logo }}" alt="{{ title }}">
+    </div>
+    {% endif %}
+    <h1>{{ title }}</h1>
+  </div>
+</section>
+{% else %}
 <section class="hero" style="padding-bottom:0;">
   <div class="wrap">
     {% if logo %}
@@ -11,6 +23,7 @@ layout: base.njk
     <h1>{{ title }}</h1>
   </div>
 </section>
+{% endif %}
 
 <section>
   <div class="wrap prose">
@@ -30,6 +43,22 @@ layout: base.njk
     {% endif %}
   </div>
 </section>
+
+{% if featured and gallery and gallery.length %}
+<section class="wash">
+  <div class="wrap">
+    <h2 class="section-title"><span class="kicker">Gallery</span>More from {{ title }}</h2>
+    <div class="photo-gallery">
+      {% for g in gallery %}
+      <figure>
+        <img src="{{ g.image }}" alt="{{ g.caption or title }}">
+        {% if g.caption %}<figcaption>{{ g.caption }}</figcaption>{% endif %}
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
 
 {% set history = collections.events | eventsForSponsor(slug) %}
 {% if history.length %}

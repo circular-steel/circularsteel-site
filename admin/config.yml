@@ -192,6 +192,16 @@ collections:
       - { label: "Slug", name: "slug", widget: "string", hint: "URL-friendly, e.g. cleveland-steel-tubes — used to link this sponsor to events" }
       - { label: "Logo", name: "logo", widget: "image", required: false, hint: "Any size, shape or file type is fine (PNG, JPG, SVG, WEBP) — it's automatically fitted into a consistent box on the site, no need to crop or resize first. Transparent background looks cleanest but isn't required." }
       - { label: "Website", name: "website", widget: "string", required: false }
+      - { label: "Feature page", name: "featured", widget: "boolean", default: false, hint: "Switch this on to unlock a richer profile page for this sponsor — a banner photo below and a photo gallery further down, plus more room to write in the body text. Leave off for the standard simple page. Good for Platinum/headline sponsors who've given you more to work with." }
+      - { label: "Banner photo (only shown if Feature page is on)", name: "heroImage", widget: "image", required: false, hint: "A wide photo, e.g. their team at the event or a project shot. Shown behind the page title." }
+      - label: "Photo gallery (only shown if Feature page is on)"
+        name: "gallery"
+        widget: "list"
+        required: false
+        hint: "As many photos as you like."
+        fields:
+          - { label: "Photo", name: "image", widget: "image" }
+          - { label: "Caption (optional)", name: "caption", widget: "string", required: false }
       - label: "Contacts"
         name: "contacts"
         widget: "list"
@@ -199,7 +209,7 @@ collections:
         fields:
           - { label: "Name", name: "name", widget: "string" }
           - { label: "Role", name: "role", widget: "string", required: false }
-      - { label: "About / body copy", name: "body", widget: "markdown" }
+      - { label: "About / body copy", name: "body", widget: "markdown", hint: "Standard sponsors: a paragraph or two. Feature page sponsors: write as much as you like here — headings, bold, links and images are all supported." }
 
   - name: "tiers"
     label: "Sponsor Tiers"
