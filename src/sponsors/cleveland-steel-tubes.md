@@ -3,6 +3,12 @@ title: Cleveland Steel & Tubes
 slug: cleveland-steel-tubes
 logo: /images/uploads/cleveland-steel-tubes.jpeg
 website: https://cleveland-steel.com
+featured: true
+gallery:
+  - image: /images/uploads/circular-steel-1.png
+    caption: CST Facility
+  - image: /images/uploads/cricular-steel-2.jpg
+  - image: /images/uploads/circular-steel-3.jpg
 contacts:
   - name: Roy Fishwick
     role: Managing Director
