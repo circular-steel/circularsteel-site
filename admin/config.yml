@@ -97,6 +97,7 @@ collections:
         label: "UK Hub Page (/uk/)"
         file: "src/_data/pages/uk.json"
         fields:
+          - { label: "Hero background photo", name: "heroImage", widget: "image", required: false, hint: "Shown behind the page title, same treatment as the homepage. Leave blank for a plain light background instead." }
           - { label: "Hero heading", name: "heroTitle", widget: "string" }
           - { label: "Hero subtext", name: "heroLede", widget: "text" }
           - { label: "Focus section intro", name: "focusIntro", widget: "text" }
@@ -105,6 +106,7 @@ collections:
         label: "USA Hub Page (/usa/)"
         file: "src/_data/pages/usa.json"
         fields:
+          - { label: "Hero background photo", name: "heroImage", widget: "image", required: false, hint: "Shown behind the page title, same treatment as the homepage. Leave blank for a plain light background instead." }
           - { label: "Hero heading", name: "heroTitle", widget: "string" }
           - { label: "Hero subtext", name: "heroLede", widget: "text" }
           - { label: "Focus section intro", name: "focusIntro", widget: "text" }
@@ -127,6 +129,19 @@ collections:
         fields:
           - { label: "Hero heading", name: "heroTitle", widget: "string" }
           - { label: "Hero subtext", name: "heroLede", widget: "text" }
+          - label: "Key documents"
+            name: "keyDocuments"
+            widget: "list"
+            hint: "The 'Reading list' section."
+            fields: &resource_doc_fields
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Source (shown as 'via ...')", name: "source", widget: "string", hint: "e.g. steelconstruction.org" }
+              - { label: "Link URL", name: "url", widget: "string" }
+          - label: "Useful links"
+            name: "usefulLinks"
+            widget: "list"
+            hint: "The 'Further reading' section."
+            fields: *resource_doc_fields
       - name: "help"
         label: "Help Page"
         file: "src/_data/pages/help.json"

@@ -7,7 +7,7 @@ region: usa
 ---
 {% from "sponsor-grid.njk" import sponsorGrid %}
 {% from "logo-marquee.njk" import logoMarquee %}
-<section class="hero hero-photo" style="padding-bottom:0; --hero-img: url('/images/gallery/2025-usa-workshop.jpg'); --hero-pos: center;">
+<section class="hero{% if pages.usa.heroImage %} hero-photo{% endif %}" style="padding-bottom:0;{% if pages.usa.heroImage %} --hero-img: url('{{ pages.usa.heroImage }}'); --hero-pos: center;{% endif %}">
   <div class="wrap">
     <h1>{{ pages.usa.heroTitle }}</h1>
     <p class="lede">{{ pages.usa.heroLede }}</p>

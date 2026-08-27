@@ -1,4 +1,16 @@
 {
   "heroTitle": "Resources",
-  "heroLede": "Organisations and key documents on structural steel reuse."
+  "heroLede": "Organisations and key documents on structural steel reuse.",
+  "keyDocuments": [
+    { "title": "BCSA 2050 Decarbonisation Roadmap", "source": "steelconstruction.org", "url": "https://www.steelconstruction.org/" },
+    { "title": "NSSS Annex J: Sustainability Specification (2022)", "source": "steelconstruction.org", "url": "https://www.steelconstruction.org/" },
+    { "title": "SCI P427 — Structural Steel Reuse (2019)", "source": "steel-sci.com", "url": "https://www.steel-sci.com/" },
+    { "title": "SCI P440 — Structural Steel Reuse Pre-1970 (2023)", "source": "steel-sci.com", "url": "https://www.steel-sci.com/" },
+    { "title": "BCSA — Model Specification for the Purchase of Reclaimed Steel Sections (2022)", "source": "steelconstruction.org", "url": "https://www.steelconstruction.org/" },
+    { "title": "IStructE — Appraisal of Existing Structures, 3rd Ed (2010)", "source": "istructe.org", "url": "https://www.istructe.org/" }
+  ],
+  "usefulLinks": [
+    { "title": "IStructE — Circular Economy and Reuse: Guidance for Designers (2023)", "source": "istructe.org", "url": "https://www.istructe.org/" },
+    { "title": "PROGRESS — Provisions for a Greater Reuse of Steel Structures (2020)", "source": "steelconstruct.com", "url": "https://www.steelconstruct.com/" }
+  ]
 }
