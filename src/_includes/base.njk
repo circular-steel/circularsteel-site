@@ -141,6 +141,12 @@
     background-size: cover;
     background-position: var(--hero-pos, left center);
   }
+  /* Centred hero copy (UK/USA) needs even contrast across the whole
+     width, not the homepage's left-heavy directional fade - a flat
+     tint over the full photo instead of a gradient that fades away. */
+  .hero.hero-photo.hero-center {
+    background-image: linear-gradient(rgba(0,12,32,0.55), rgba(0,12,32,0.55)), var(--hero-img);
+  }
   .hero.hero-photo h1,
   .hero.hero-photo p.lede { color: #fff; }
   .hero.hero-photo p.lede { color: rgba(255,255,255,0.88); }

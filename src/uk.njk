@@ -7,7 +7,7 @@ region: uk
 ---
 {% from "sponsor-grid.njk" import sponsorGrid %}
 {% from "logo-marquee.njk" import logoMarquee %}
-<section class="hero{% if pages.uk.heroImage %} hero-photo{% endif %}" style="padding-bottom:0;{% if pages.uk.heroImage %} --hero-img: url('{{ pages.uk.heroImage }}'); --hero-pos: center;{% endif %}">
+<section class="hero{% if pages.uk.heroImage %} hero-photo hero-center{% endif %}" style="padding-bottom:0;{% if pages.uk.heroImage %} --hero-img: url('{{ pages.uk.heroImage }}'); --hero-pos: center;{% endif %}">
   <div class="wrap">
     <h1>{{ pages.uk.heroTitle }}</h1>
     <p class="lede">{{ pages.uk.heroLede }}</p>
