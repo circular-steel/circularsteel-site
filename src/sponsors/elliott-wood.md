@@ -10,5 +10,7 @@ contacts:
     role: Director
   - name: Louisa Treadwell
     role: Associate
+  - name: George Gerogiou
+    role: Director
 ---
 Elliott Wood engineers "a better society". A certified B Corp, the practice offers structural engineering, sustainability, development infrastructure, transport and digital services.
