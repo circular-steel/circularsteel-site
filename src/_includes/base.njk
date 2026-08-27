@@ -137,9 +137,9 @@
     text-align: center;
   }
   .hero.hero-photo {
-    background-image: linear-gradient(100deg, rgba(0,15,40,0.28), rgba(0,15,40,0.05) 55%), url('/images/hero-bg.jpg');
+    background-image: linear-gradient(100deg, rgba(0,15,40,0.28), rgba(0,15,40,0.05) 55%), var(--hero-img, url('/images/hero-bg.jpg'));
     background-size: cover;
-    background-position: left center;
+    background-position: var(--hero-pos, left center);
   }
   .hero.hero-photo h1,
   .hero.hero-photo p.lede { color: #fff; }

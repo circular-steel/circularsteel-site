@@ -7,7 +7,7 @@ region: uk
 ---
 {% from "sponsor-grid.njk" import sponsorGrid %}
 {% from "logo-marquee.njk" import logoMarquee %}
-<section class="hero" style="padding-bottom:0;">
+<section class="hero hero-photo" style="padding-bottom:0; --hero-img: url('/images/gallery/2026-uk-speaker.jpg'); --hero-pos: center;">
   <div class="wrap">
     <h1>{{ pages.uk.heroTitle }}</h1>
     <p class="lede">{{ pages.uk.heroLede }}</p>
@@ -20,9 +20,12 @@ region: uk
   <div class="wrap" style="text-align:center;">
     <div class="card dark" style="display:inline-block; text-align:left; max-width:520px;">
       <div class="meta">Next event</div>
-      <h3><a href="{{ ukUpcoming.url }}" style="color:inherit; text-decoration:none;">{{ ukUpcoming.data.title }}</a></h3>
+      <h3>{{ ukUpcoming.data.title }}</h3>
       <p>{{ ukUpcoming.data.date | eventDate }}{% if ukUpcoming.data.time %}, {{ ukUpcoming.data.time }}{% endif %} &middot; {{ ukUpcoming.data.venue }}. {{ ukUpcoming.data.summary }}</p>
-      <p style="margin-top:14px;"><a class="btn on-dark solid-white" href="/contact/">Get in touch</a></p>
+      <p style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="btn on-dark solid-white" href="/contact/">Get in touch</a>
+        <a class="btn on-dark" href="{{ ukUpcoming.url }}">View event page</a>
+      </p>
     </div>
   </div>
 </section>
