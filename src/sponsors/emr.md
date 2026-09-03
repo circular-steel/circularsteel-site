@@ -1,8 +1,9 @@
 ---
 title: EMR
 slug: emr
-logo: /images/uploads/logo-emr-may2016-rgb.png
+logo: /images/uploads/masthead-logo-group.svg
 website: https://uk.emrgroup.com
+featured: false
 contacts:
   - name: Bill Firth
     role: General Manager Business Development
