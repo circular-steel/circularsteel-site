@@ -7,7 +7,7 @@ region: usa
 ---
 {% from "sponsor-grid.njk" import sponsorGrid %}
 {% from "logo-marquee.njk" import logoMarquee %}
-<section class="hero{% if pages.usa.heroImage %} hero-photo hero-center{% endif %}" style="padding-bottom:0;{% if pages.usa.heroImage %} --hero-img: url('{{ pages.usa.heroImage }}'); --hero-pos: center;{% endif %}">
+<section class="hero{% if pages.usa.heroImage %} hero-photo hero-center{% endif %}" style="{% if pages.usa.heroImage %}--hero-img: url('{{ pages.usa.heroImage }}'); --hero-pos: center;{% else %}padding-bottom:0;{% endif %}">
   <div class="wrap">
     <h1>{{ pages.usa.heroTitle }}</h1>
     <p class="lede">{{ pages.usa.heroLede }}</p>
@@ -34,14 +34,16 @@ region: usa
 <section class="wash">
   <div class="wrap">
     <h2 class="section-title"><span class="kicker">Focus</span>Connecting global expertise</h2>
-    <p class="prose" style="margin-bottom:20px;">{{ pages.usa.focusIntro }}</p>
-    <div class="grid-2">
-      <div class="card"><p>US project leaders and asset owners</p></div>
-      <div class="card"><p>UK practitioners sharing proven experience</p></div>
-      <div class="card"><p>Engineers, fabricators and demolition specialists</p></div>
-      <div class="card"><p>Policy leaders and sustainability experts</p></div>
+    <div class="focus-block">
+      <p class="prose" style="margin-bottom:20px;">{{ pages.usa.focusIntro }}</p>
+      <div class="grid-2">
+        <div class="card"><p>US project leaders and asset owners</p></div>
+        <div class="card"><p>UK practitioners sharing proven experience</p></div>
+        <div class="card"><p>Engineers, fabricators and demolition specialists</p></div>
+        <div class="card"><p>Policy leaders and sustainability experts</p></div>
+      </div>
+      <p class="prose" style="margin-top:28px;">{{ pages.usa.closingText }}</p>
     </div>
-    <p class="prose" style="margin-top:28px;">{{ pages.usa.closingText }}</p>
   </div>
 </section>
 

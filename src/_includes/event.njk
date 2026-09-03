@@ -2,15 +2,14 @@
 layout: base.njk
 ---
 {% from "sponsor-grid.njk" import sponsorGrid %}
-<section class="hero" style="padding-bottom:0;">
+<section class="hero{% if heroImage %} hero-photo hero-center{% endif %}" style="{% if heroImage %}--hero-img: url('{{ heroImage }}'); --hero-pos: center;{% else %}padding-bottom:0;{% endif %}">
   <div class="wrap">
     <span class="tag {{ 'status-past' if status == 'past' }}">{{ status | upper }}</span>
     <h1 style="margin-top:14px;">{{ title }}</h1>
-    <p class="lede">
-      {% if date %}{{ date | eventDate }}{% endif %}
-      {% if time %}, {{ time }}{% endif %}
-      {% if venue %} &middot; {{ venue }}{% endif %}
-    </p>
+    <p class="lede">{% if date %}{{ date | eventDate }}{% endif %}{% if time %}, {{ time }}{% endif %}{% if venue %} &middot; {{ venue }}{% endif %}</p>
+    {% if ctaLabel and ctaUrl %}
+    <p style="margin-top:22px;"><a class="btn {{ 'on-dark solid-white' if heroImage else 'solid' }}" href="{{ ctaUrl }}">{{ ctaLabel }}</a></p>
+    {% endif %}
   </div>
 </section>
 

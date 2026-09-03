@@ -616,6 +616,12 @@
   .prose { max-width: 720px; margin: 0 auto; }
   .prose h2 { color: var(--navy); font-size: 23px; font-weight: 600; margin-top: 36px; }
   .prose p { color: var(--ink); }
+
+  /* A "focus" section (intro paragraph, tile grid, closing paragraph)
+     reads oddly with narrow prose text stacked over a full-width grid -
+     this gives both a shared, moderate measure so they line up. */
+  .focus-block { max-width: 880px; margin: 0 auto; }
+  .focus-block .prose { max-width: none; }
 </style>
 </head>
 <body>

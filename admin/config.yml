@@ -165,6 +165,9 @@ collections:
       - { label: "Venue", name: "venue", widget: "string", required: false }
       - { label: "Status", name: "status", widget: "select", options: ["upcoming", "past"] }
       - { label: "Feature image", name: "image", widget: "image", required: false, hint: "Shown on the UK/USA hub page for the two most recent events." }
+      - { label: "Hero background photo (optional)", name: "heroImage", widget: "image", required: false, hint: "A wide landscape photo shown behind the title on this event's own page - e.g. a skyline for the city it's in. Leave blank for a plain light hero instead." }
+      - { label: "Hero button label (optional)", name: "ctaLabel", widget: "string", required: false, hint: "e.g. 'Register interest'. Leave both this and the URL blank for no button." }
+      - { label: "Hero button link (optional)", name: "ctaUrl", widget: "string", required: false, hint: "Where the button goes, e.g. /contact/" }
       - { label: "Summary (shown on the UK/USA hub list)", name: "summary", widget: "text" }
       - label: "Sponsors"
         name: "sponsors"

@@ -7,7 +7,7 @@ region: uk
 ---
 {% from "sponsor-grid.njk" import sponsorGrid %}
 {% from "logo-marquee.njk" import logoMarquee %}
-<section class="hero{% if pages.uk.heroImage %} hero-photo hero-center{% endif %}" style="padding-bottom:0;{% if pages.uk.heroImage %} --hero-img: url('{{ pages.uk.heroImage }}'); --hero-pos: center;{% endif %}">
+<section class="hero{% if pages.uk.heroImage %} hero-photo hero-center{% endif %}" style="{% if pages.uk.heroImage %}--hero-img: url('{{ pages.uk.heroImage }}'); --hero-pos: center;{% else %}padding-bottom:0;{% endif %}">
   <div class="wrap">
     <h1>{{ pages.uk.heroTitle }}</h1>
     <p class="lede">{{ pages.uk.heroLede }}</p>
@@ -34,15 +34,17 @@ region: uk
 <section class="wash">
   <div class="wrap">
     <h2 class="section-title"><span class="kicker">Focus</span>Where strategy meets delivery</h2>
-    <p class="prose" style="margin-bottom:20px;">{{ pages.uk.focusIntro }}</p>
-    <div class="grid-3">
-      <div class="card"><p>Real project case studies</p></div>
-      <div class="card"><p>Deconstruction, testing and certification</p></div>
-      <div class="card"><p>Supply chain readiness</p></div>
-      <div class="card"><p>Commercials and risk</p></div>
-      <div class="card"><p>Standards, policy and planning drivers</p></div>
+    <div class="focus-block">
+      <p class="prose" style="margin-bottom:20px;">{{ pages.uk.focusIntro }}</p>
+      <div class="grid-3">
+        <div class="card"><p>Real project case studies</p></div>
+        <div class="card"><p>Deconstruction, testing and certification</p></div>
+        <div class="card"><p>Supply chain readiness</p></div>
+        <div class="card"><p>Commercials and risk</p></div>
+        <div class="card"><p>Standards, policy and planning drivers</p></div>
+      </div>
+      <p class="prose" style="margin-top:28px;"><strong>Who attends.</strong> {{ pages.uk.whoAttends }}</p>
     </div>
-    <p class="prose" style="margin-top:28px;"><strong>Who attends.</strong> {{ pages.uk.whoAttends }}</p>
   </div>
 </section>
 
