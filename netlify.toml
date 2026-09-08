@@ -4,3 +4,28 @@
 
 [functions]
   directory = "netlify/functions"
+
+# Vanity subdomains - once uk.circularsteel.com / usa.circularsteel.com /
+# us.circularsteel.com are added as domain aliases on this site (Netlify
+# dashboard) and their DNS is pointed here, these send visitors straight
+# to the real page under the main domain rather than serving content at
+# the subdomain itself. Keeps the site's actual link structure (nav,
+# cross-links, canonical URLs) untouched - only ever one real home for
+# each page, at circularsteel.com.
+[[redirects]]
+  from = "https://uk.circularsteel.com/*"
+  to = "https://circularsteel.com/uk/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://usa.circularsteel.com/*"
+  to = "https://circularsteel.com/usa/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://us.circularsteel.com/*"
+  to = "https://circularsteel.com/usa/:splat"
+  status = 301
+  force = true
