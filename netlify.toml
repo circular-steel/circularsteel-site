@@ -29,3 +29,163 @@
   to = "https://circularsteel.com/usa/:splat"
   status = 301
   force = true
+
+# Old GoDaddy site URLs -> equivalent page on the new site. Only matters
+# once circularsteel.com itself is pointed here (harmless before then -
+# nothing on the old domain to redirect from yet). Protects any existing
+# Google ranking and external/bookmarked links from breaking at cutover.
+# Source: circularsteel-live-site-audit.md (full crawl of the live site).
+
+# Core pages
+[[redirects]]
+  from = "/uk"
+  to = "/uk/"
+  status = 301
+[[redirects]]
+  from = "/usa"
+  to = "/usa/"
+  status = 301
+[[redirects]]
+  from = "/about"
+  to = "/about/"
+  status = 301
+[[redirects]]
+  from = "/contact"
+  to = "/contact/"
+  status = 301
+[[redirects]]
+  from = "/resources"
+  to = "/resources/"
+  status = 301
+[[redirects]]
+  from = "/help"
+  to = "/help/"
+  status = 301
+
+# Year hub pages (and their old agenda/sponsors sub-pages, folded into
+# the one event page on the new site)
+[[redirects]]
+  from = "/cs-2022"
+  to = "/uk/2022/"
+  status = 301
+[[redirects]]
+  from = "/cs-2023-2"
+  to = "/uk/2023/"
+  status = 301
+[[redirects]]
+  from = "/cs2023-agenda"
+  to = "/uk/2023/"
+  status = 301
+[[redirects]]
+  from = "/cs-2024"
+  to = "/uk/2024/"
+  status = 301
+[[redirects]]
+  from = "/cs2024-agenda"
+  to = "/uk/2024/"
+  status = 301
+[[redirects]]
+  from = "/cs-2024-sponsors"
+  to = "/uk/2024/"
+  status = 301
+[[redirects]]
+  from = "/cs-uk-2025-1"
+  to = "/uk/2025/"
+  status = 301
+[[redirects]]
+  from = "/cs-uk-2026"
+  to = "/uk/2026/"
+  status = 301
+[[redirects]]
+  from = "/cs-usa-2025-1"
+  to = "/usa/2025/"
+  status = 301
+
+# Sponsor spotlight pages -> the one profile each company now has
+[[redirects]]
+  from = "/cs-2023-gold1-cst"
+  to = "/sponsors/cleveland-steel-tubes/"
+  status = 301
+[[redirects]]
+  from = "/cs-2023-gold2-skanska-1"
+  to = "/sponsors/skanska/"
+  status = 301
+[[redirects]]
+  from = "/cs-2023-gold3-emr"
+  to = "/sponsors/emr/"
+  status = 301
+[[redirects]]
+  from = "/cs-2023-gold4-ew"
+  to = "/sponsors/elliott-wood/"
+  status = 301
+[[redirects]]
+  from = "/cs-2023-gold5-bourne"
+  to = "/sponsors/bourne-group/"
+  status = 301
+[[redirects]]
+  from = "/cs-2024-platinum-kby"
+  to = "/sponsors/keltbray/"
+  status = 301
+[[redirects]]
+  from = "/cs-2024-platinum-eme"
+  to = "/sponsors/excess-materials-exchange/"
+  status = 301
+[[redirects]]
+  from = "/cs-2024-gold-bourne"
+  to = "/sponsors/bourne-group/"
+  status = 301
+[[redirects]]
+  from = "/cs-2024-gold-ew"
+  to = "/sponsors/elliott-wood/"
+  status = 301
+[[redirects]]
+  from = "/cs-2025-gold-hts"
+  to = "/sponsors/hts/"
+  status = 301
+[[redirects]]
+  from = "/cs-2025-gold-ew"
+  to = "/sponsors/elliott-wood/"
+  status = 301
+[[redirects]]
+  from = "/cs-2025-gold-emr"
+  to = "/sponsors/emr/"
+  status = 301
+[[redirects]]
+  from = "/cs-2025-gold-bh"
+  to = "/sponsors/buro-happold/"
+  status = 301
+[[redirects]]
+  from = "/cs-2025-gold-7steeluk-1"
+  to = "/sponsors/7-steel-uk/"
+  status = 301
+[[redirects]]
+  from = "/cs-2025-gold-cst"
+  to = "/sponsors/cleveland-steel-tubes/"
+  status = 301
+[[redirects]]
+  # Storey Club sponsor profile was dropped (permanently closed) - send
+  # anyone who had this bookmarked/linked to the event it sponsored
+  # rather than a dead end.
+  from = "/cs-2025-storey-club"
+  to = "/uk/2025/"
+  status = 301
+[[redirects]]
+  from = "/csus2025-silver-mbj"
+  to = "/sponsors/mbj/"
+  status = 301
+[[redirects]]
+  from = "/csus2025-gold-aisc"
+  to = "/sponsors/aisc/"
+  status = 301
+[[redirects]]
+  from = "/csus2025-plat-ew"
+  to = "/sponsors/elliott-wood/"
+  status = 301
+[[redirects]]
+  from = "/csus2025-gold-klaa"
+  to = "/sponsors/kla/"
+  status = 301
+[[redirects]]
+  from = "/cs-2026-gold-cst-1"
+  to = "/sponsors/cleveland-steel-tubes/"
+  status = 301
