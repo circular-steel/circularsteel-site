@@ -12,9 +12,9 @@
     "linkUrl": "https://www.eventbrite.co.uk/e/circular-steel-uk-2027-tickets-1999726473714?aff=oddtdtcreator"
   },
   "usa": {
-    "enabled": false,
-    "text": "",
+    "enabled": true,
+    "text": "Get your ticket to USA 2027 now",
     "linkLabel": "",
-    "linkUrl": ""
+    "linkUrl": "https://www.eventbrite.co.uk/e/circular-steel-usa-2027-tickets-2001601330461?aff=oddtdtcreator"
   }
 }
